@@ -80,17 +80,17 @@ const ProductsSection = () => {
         {/* Product Cards */}
         <div className="grid lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <div key={index} className="relative bg-card rounded-2xl border border-border overflow-hidden card-hover">
+            <div key={index} className={`relative bg-card rounded-2xl border border-border overflow-visible card-hover ${product.popular ? 'mt-6' : ''}`}>
               {product.popular && (
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                  <div className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium shadow-lg">
                     <Sparkles className="w-4 h-4" />
                     Most Popular
                   </div>
                 </div>
               )}
               
-              <div className="p-8 pt-10">
+              <div className={`p-8 ${product.popular ? 'pt-8' : ''}`}>
                 {/* Icon */}
                 <div className="w-14 h-14 rounded-xl bg-emerald-light flex items-center justify-center mb-6">
                   <product.icon className="w-7 h-7 text-primary" />
