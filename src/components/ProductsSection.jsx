@@ -4,24 +4,22 @@ import { useState } from "react";
 
 const products = [
   {
-    icon: Building2,
-    title: "AI Hiring Assistant",
-    subtitle: "FOR HRS, COMPANIES",
-    description: "AUTOMATE YOUR HIRING WORKFLOW",
-    stats: [
-      { value: "30%", label: "cost reduction" },
-      { value: "40%", label: "faster time-to-hire" },
-      { value: "95%", label: "consistent screening" },
-    ],
+    icon: Sparkles,
+    title: "HireSpark",
+    subtitle: "For HR and Companies",
+    description:
+      "Increase your HR productivity by upto 3times",
+    stats: [],
     features: [
-      "Automated candidate screening and ranking",
-      "Intelligent interview scheduling",
-      "Real-time hiring analytics dashboard",
+      "AI candidate matching",
+      "Automated workflows",
+      "Single Platform for all Job boards",
+      "Access to Our Special Networks"
     ],
-    cta: "Automate Your Hiring",
+    cta: "Explore HireSpark",
     ctaColor: "bg-primary",
     popular: false,
-    link: null,
+    link: "https://hirespark.hiringbazaar.in/",
   },
   {
     icon: Users,
@@ -41,24 +39,7 @@ const products = [
     popular: true,
     link: "https://www.partnershb.in/",
   },
-  {
-    icon: Sparkles,
-    title: "HireSpark",
-    subtitle: "For Recruitment Agencies",
-    description:
-      "Advanced AI-powered recruitment platform for agencies",
-    stats: [],
-    features: [
-      "AI candidate matching",
-      "Automated workflows",
-      "Client management",
-      "Revenue tracking",
-    ],
-    cta: "Explore HireSpark",
-    ctaColor: "bg-primary",
-    popular: false,
-    link: "https://hirespark.hiringbazaar.in/",
-  },
+
   {
     icon: GraduationCap,
     title: "Campus Hiring",
@@ -79,7 +60,7 @@ const products = [
     cta: "Empower Your Placements",
     ctaColor: "bg-primary",
     popular: false,
-    link: null,
+    link: "https://campushb.hiringbazaar.in/",
   },
 ];
 

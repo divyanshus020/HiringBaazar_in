@@ -4,7 +4,7 @@ const credentials = [
   {
     icon: Tv,
     title: "Featured on ZeeTV",
-    subtitle: "IdeaBaaz 2024",
+    subtitle: "IdeaBaaz 2025",
   },
   {
     icon: Award,
@@ -32,7 +32,7 @@ const TrustSection = () => {
   return (
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4 md:px-6">
-        
+
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <span className="inline-block px-4 py-2 rounded-full bg-rose-light text-accent text-xs md:text-sm font-medium mb-4 md:mb-6">
