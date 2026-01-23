@@ -19,7 +19,7 @@ const products = [
     cta: "Explore Hiring Bazaar Ai",
     ctaColor: "bg-primary",
     popular: false,
-    link: "https://Hiring Bazaar Ai.hiringbazaar.in/",
+    link: "https://hirespark.hiringbazaar.in/hr/login",
   },
   {
     icon: Users,

@@ -96,7 +96,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://Hiring Bazaar Ai.hiringbazaar.in/"
+                  href="https://hirespark.hiringbazaar.in/hr/login"
                   target="_blank"
                   rel="noreferrer"
                   className="text-sm text-footer-foreground/80 hover:text-primary transition-colors"
