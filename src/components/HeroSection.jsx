@@ -82,22 +82,6 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Social Proof Badge */}
-        <div className="flex items-center justify-center gap-2 mb-8">
-          <div className="flex -space-x-2">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white" />
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white" />
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-green-600 border-2 border-white" />
-          </div>
-          <p className="text-sm text-gray-600 font-medium">
-            Trusted by <span className="font-semibold text-gray-900">500+</span> companies with a{" "}
-            <span className="inline-flex items-center gap-1">
-              <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              <span className="font-semibold text-gray-900">4.9</span>
-            </span>{" "}
-            rating
-          </p>
-        </div>
 
         {/* Main Headline */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center text-gray-900 leading-tight">

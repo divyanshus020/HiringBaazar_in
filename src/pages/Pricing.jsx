@@ -77,6 +77,7 @@ const Pricing = () => {
                                     <Button
                                         className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground"
                                         size="lg"
+                                        onClick={() => window.location.href = '/#contact'}
                                     >
                                         Get Started
                                     </Button>
@@ -122,6 +123,7 @@ const Pricing = () => {
                                     <Button
                                         className="w-full bg-gradient-to-r from-primary to-primary/60 hover:from-primary/90 hover:to-primary/50 text-primary-foreground shadow-lg shadow-primary/20"
                                         size="lg"
+                                        onClick={() => window.location.href = '/#contact'}
                                     >
                                         Get Started
                                     </Button>
