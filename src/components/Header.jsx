@@ -46,7 +46,7 @@ const Header = () => {
                   Campus HB
                 </a>
                 <a
-                  href="https://Hiring Bazaar Ai.hiringbazaar.in/"
+                  href="https://hirespark.hiringbazaar.in/hr/login"
                   target="_blank"
                   rel="noreferrer"
                   className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
