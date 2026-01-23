@@ -109,7 +109,9 @@ const HeroSection = () => {
             size="lg"
             className="bg-gray-900 hover:bg-gray-800 text-white rounded-full px-8 py-6 text-base font-medium shadow-lg hover:shadow-xl transition-all"
           >
-            Explore Opportunities <ArrowRight className="ml-2 w-5 h-5" />
+            <a className="flex items-center" href="https://hirespark.hiringbazaar.in/hr/login">
+              Start Hiring  <ArrowRight className="ml-2 w-5 h-5" />
+            </a>
           </Button>
 
           <Button
@@ -134,7 +136,7 @@ const HeroSection = () => {
 
         {/* YC Badge */}
         <p className="text-sm text-gray-500 text-center font-medium">
-          YC-backed startup trusted by early-stage & scaling teams
+          TIDES IIT Roorkee Backed Startup Trusted By Early-Stage & Scaling Teams
         </p>
 
         {/* Video Section - Always Visible */}

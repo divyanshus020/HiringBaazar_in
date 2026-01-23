@@ -16,7 +16,7 @@ const Footer = () => {
             </div>
             <p className="text-sm text-footer-foreground/80 mb-6 leading-relaxed">
               Revolutionizing Talent Acquisition through AI and Strategic Collaboration.
-              Making hiring simple, fast, and transparent.
+              Simplifying hiring so u can hire with confidence
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -26,24 +26,6 @@ const Footer = () => {
                 className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
               >
                 <Linkedin className="w-5 h-5 text-primary" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-              >
-                <Twitter className="w-5 h-5 text-primary" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-              >
-                <Facebook className="w-5 h-5 text-primary" />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 flex items-center justify-center transition-colors"
-              >
-                <Instagram className="w-5 h-5 text-primary" />
               </a>
             </div>
           </div>
@@ -57,21 +39,7 @@ const Footer = () => {
                   About Us
                 </a>
               </li>
-              <li>
-                <a href="#" className="text-sm text-footer-foreground/80 hover:text-primary transition-colors">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-footer-foreground/80 hover:text-primary transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-sm text-footer-foreground/80 hover:text-primary transition-colors">
-                  Press Kit
-                </a>
-              </li>
+
               <li>
                 <a href="/pricing" className="text-sm text-footer-foreground/80 hover:text-primary transition-colors">
                   Pricing
@@ -153,7 +121,7 @@ const Footer = () => {
         <div className="border-t border-footer-foreground/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-footer-foreground/60 text-sm text-center md:text-left">
-              © 2024 Hiring Bazaar (LyteHire.ai). All rights reserved.
+              © 2026 Hiring Bazaar. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <a href="/privacy-policy" className="text-sm text-footer-foreground/60 hover:text-primary transition-colors">

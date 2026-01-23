@@ -4,9 +4,8 @@ const testimonials = [
   {
     quote:
       "Hiring Bazaar reduced our time-to-hire by 45%. The AI screening is incredibly accurate and has helped us find better candidates faster than ever before.",
-    name: "Testunonirs",
-    role: "Kritcure Pharmaceuticals",
-    initials: "TP",
+    name: "Kritcure Pharmaceuticals",
+    initials: "KP",
     color: "bg-emerald-light text-primary",
   },
   {
@@ -21,7 +20,7 @@ const testimonials = [
     quote:
       "Oqlous AI - Campus hiring became very much easier for us",
     name: "Oqlous AI",
-    role: "Innovation Partner",
+
     initials: "OA",
     color: "bg-emerald-light text-primary",
   },
