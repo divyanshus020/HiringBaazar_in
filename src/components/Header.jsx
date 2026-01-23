@@ -46,12 +46,12 @@ const Header = () => {
                   Campus HB
                 </a>
                 <a
-                  href="https://hirespark.hiringbazaar.in/"
+                  href="https://Hiring Bazaar Ai.hiringbazaar.in/"
                   target="_blank"
                   rel="noreferrer"
                   className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors"
                 >
-                  HireSpark
+                  Hiring Bazaar Ai
                 </a>
                 <a
                   href="https://www.partnershb.in/"
@@ -126,13 +126,13 @@ const Header = () => {
                     Campus HB
                   </a>
                   <a
-                    href="https://hirespark.hiringbazaar.in/"
+                    href="https://Hiring Bazaar Ai.hiringbazaar.in/"
                     target="_blank"
                     rel="noreferrer"
                     className="block text-muted-foreground hover:text-foreground transition-colors py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    HireSpark
+                    Hiring Bazaar Ai
                   </a>
                   <a
                     href="https://www.partnershb.in/"

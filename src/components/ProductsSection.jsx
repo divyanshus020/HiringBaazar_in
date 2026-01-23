@@ -5,7 +5,7 @@ import { useState } from "react";
 const products = [
   {
     icon: Sparkles,
-    title: "HireSpark",
+    title: "Hiring Bazaar Ai",
     subtitle: "For HR and Companies",
     description:
       "Increase your HR productivity by upto 3times",
@@ -16,10 +16,10 @@ const products = [
       "Single Platform for all Job boards",
       "Access to Our Special Networks"
     ],
-    cta: "Explore HireSpark",
+    cta: "Explore Hiring Bazaar Ai",
     ctaColor: "bg-primary",
     popular: false,
-    link: "https://hirespark.hiringbazaar.in/",
+    link: "https://Hiring Bazaar Ai.hiringbazaar.in/",
   },
   {
     icon: Users,
