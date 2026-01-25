@@ -62,7 +62,7 @@ const TestimonialsSection = () => {
             </div>
             <div className="flex items-center gap-2 text-gray-500 text-sm font-medium">
               <Zap className="w-5 h-5 text-emerald-500" />
-              <span>60% Faster Hiring</span>
+              <span>90% Faster Hiring</span>
             </div>
           </div>
         </div>
@@ -78,8 +78,8 @@ const TestimonialsSection = () => {
             >
               {/* Outer Capsule Glow */}
               <div className={`absolute inset-0 bg-gradient-to-b opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl -z-10 ${t.color === 'emerald' ? 'from-emerald-200/50 to-transparent' :
-                  t.color === 'purple' ? 'from-purple-200/50 to-transparent' :
-                    'from-blue-200/50 to-transparent'
+                t.color === 'purple' ? 'from-purple-200/50 to-transparent' :
+                  'from-blue-200/50 to-transparent'
                 }`} />
 
               {/* Main Card */}
@@ -93,8 +93,8 @@ const TestimonialsSection = () => {
                       ))}
                     </div>
                     <div className={`p-3 rounded-2xl ${t.color === 'emerald' ? 'bg-emerald-50 text-emerald-600' :
-                        t.color === 'purple' ? 'bg-purple-50 text-purple-600' :
-                          'bg-blue-50 text-blue-600'
+                      t.color === 'purple' ? 'bg-purple-50 text-purple-600' :
+                        'bg-blue-50 text-blue-600'
                       }`}>
                       <Quote className="w-5 h-5 opacity-50" />
                     </div>
@@ -109,8 +109,8 @@ const TestimonialsSection = () => {
                 {/* Author Info Capsule */}
                 <div className="flex items-center gap-4 bg-gray-50/50 p-4 rounded-3xl border border-gray-100/50">
                   <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold text-sm shadow-lg transform transition-transform group-hover:rotate-6 bg-gradient-to-br ${t.color === 'emerald' ? 'from-emerald-500 to-teal-500' :
-                      t.color === 'purple' ? 'from-purple-500 to-pink-500' :
-                        'from-blue-500 to-cyan-500'
+                    t.color === 'purple' ? 'from-purple-500 to-pink-500' :
+                      'from-blue-500 to-cyan-500'
                     }`}>
                     {t.initials}
                   </div>
@@ -125,26 +125,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Global Social Proof Footer */}
-        <div className="mt-24 pt-12 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex items-center gap-3">
-            <div className="flex -space-x-4">
-              {[1, 2, 3, 4].map(idx => (
-                <div key={idx} className="w-10 h-10 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-                  <img src={`https://i.pravatar.cc/100?img=${idx + 10}`} alt="User" />
-                </div>
-              ))}
-            </div>
-            <p className="text-sm font-medium text-gray-600">
-              Joined by <span className="text-emerald-600 font-bold">500+</span> companies worldwide
-            </p>
-          </div>
 
-          <div className="flex items-center gap-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
-            <span className="text-xl font-bold text-gray-400">Trusted Partner</span>
-            <Sparkles className="w-5 h-5 text-amber-500" />
-            <span className="text-xl font-bold text-gray-400 tracking-widest uppercase">Certified</span>
-          </div>
-        </div>
       </div>
     </section>
   );

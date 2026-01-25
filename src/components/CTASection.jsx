@@ -201,7 +201,7 @@ const CTASection = () => {
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             <div className="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-emerald-200/50 shadow-md">
               <Zap className="w-4 h-4 text-emerald-600" />
-              <span className="text-sm font-semibold text-gray-700">60% Faster Hiring</span>
+              <span className="text-sm font-semibold text-gray-700">90% Faster Hiring</span>
             </div>
             <div className="flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-emerald-200/50 shadow-md">
               <Shield className="w-4 h-4 text-emerald-600" />

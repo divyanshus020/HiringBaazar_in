@@ -85,12 +85,7 @@ const Header = () => {
 
             {/* Desktop CTA Buttons */}
             <div className="hidden lg:flex items-center gap-1">
-              <a
-                href="/#contact"
-                className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 px-4 py-2 rounded-full transition-all duration-300"
-              >
-                Sign in
-              </a>
+
               <a href="#demo-video" className="group bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full px-6 py-2.5 text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center">
                 See a demo
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

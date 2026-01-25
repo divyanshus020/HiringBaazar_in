@@ -105,7 +105,7 @@ const HeroSection = () => {
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/80 backdrop-blur-sm border border-emerald-200/50 rounded-full shadow-lg">
             <Award className="w-5 h-5 text-emerald-600" />
             <span className="text-sm font-semibold bg-gradient-to-r from-emerald-700 to-teal-700 bg-clip-text text-transparent">
-              TIDES IIT Roorkee Backed Startup
+              TIDES IIT Roorkee Backed Startup Trusted By Early-Stage & Scaling Teams
             </span>
             <Sparkles className="w-4 h-4 text-amber-500" />
           </div>
@@ -145,9 +145,7 @@ const HeroSection = () => {
 
         {/* Enhanced Subheadline */}
         <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto mb-12 text-center leading-relaxed font-medium">
-          Connect with pre-vetted recruiters and top talent to fill roles{" "}
-          <span className="text-emerald-700 font-semibold">60% faster</span> with{" "}
-          <span className="text-emerald-700 font-semibold">lower cost per hire</span>
+          HB connects your company with pre-vetted recruiters and job seekers to fill roles faster with lower cost per hire.
         </p>
 
         {/* Trust Indicators */}
@@ -162,13 +160,10 @@ const HeroSection = () => {
             </div>
             <span className="font-semibold">5.0 Rating</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-700">
-            <Users className="w-5 h-5 text-emerald-600" />
-            <span className="font-semibold">500+ Companies Trust Us</span>
-          </div>
+
           <div className="flex items-center gap-2 text-gray-700">
             <TrendingUp className="w-5 h-5 text-emerald-600" />
-            <span className="font-semibold">60% Faster Hiring</span>
+            <span className="font-semibold">90% Faster Hiring</span>
           </div>
         </div>
 
