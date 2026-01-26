@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Pause, Volume2, VolumeX, Star, Users, TrendingUp, Award, CheckCircle2, Sparkles } from "lucide-react";
+import heroVideo from "../assets/hero-video.mp4";
 
 const HeroSection = () => {
   const videoRef = useRef(null);
@@ -218,7 +219,7 @@ const HeroSection = () => {
             <div className="relative">
               <video
                 ref={videoRef}
-                src="/videos/videoplayback.mp4"
+                src={heroVideo}
                 className="w-full h-[280px] md:h-[400px] lg:h-[480px] object-cover"
                 loop
                 autoPlay
