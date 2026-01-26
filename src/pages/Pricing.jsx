@@ -24,6 +24,7 @@ const Pricing = () => {
         "All features of basic*",
         "Special network of placement agencies",
         "HB perfect match",
+        "Replacement guarantee",
         "From sourcing from special network to engaging, to initial rounds of interview, to their background verification all will be done by HB."
     ];
 

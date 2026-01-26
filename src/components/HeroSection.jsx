@@ -170,13 +170,16 @@ const HeroSection = () => {
         {/* CTA Buttons with Enhanced Styling */}
         <div className="flex flex-col sm:flex-row justify-center gap-5 mb-16">
           <Button
+            asChild
             size="lg"
             className="group relative bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-700 hover:via-teal-700 hover:to-emerald-700 text-white rounded-2xl px-10 py-7 text-lg font-semibold shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-105 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
-            <a className="flex items-center relative z-10" href="https://hirespark.hiringbazaar.in/hr/login">
-              Start Hiring Now
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <a href="https://hirespark.hiringbazaar.in/hr/login">
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
+              <span className="flex items-center relative z-10">
+                Start Hiring Now
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
             </a>
           </Button>
 
