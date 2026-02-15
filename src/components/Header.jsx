@@ -26,57 +26,31 @@ const Header = () => {
             {/* Desktop Navigation - Center */}
             <nav className="hidden lg:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
               <a
-                href="/#home"
+                href="https://hirespark.hiringbazaar.in"
+                target="_blank"
+                rel="noreferrer"
                 className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 px-4 py-2 rounded-full transition-all duration-300"
               >
-                Home
+                For Employers
               </a>
-              <div className="relative group">
-                <button className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 px-4 py-2 rounded-full transition-all duration-300 flex items-center gap-1">
-                  Products
-                  <ChevronDown className="w-4 h-4 group-hover:rotate-180 transition-transform" />
-                </button>
-                <div className="absolute left-1/2 -translate-x-1/2 mt-3 w-56 bg-white/95 backdrop-blur-xl border border-gray-200/50 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 overflow-hidden">
-                  <a
-                    href="https://campushb.hiringbazaar.in/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block px-5 py-3.5 text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50/50 transition-all"
-                  >
-                    Campus HB
-                  </a>
-                  <a
-                    href="https://hirespark.hiringbazaar.in/hr/login"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block px-5 py-3.5 text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50/50 transition-all"
-                  >
-                    Hiring Bazaar AI
-                  </a>
-                  <a
-                    href="https://www.partnershb.in/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block px-5 py-3.5 text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50/50 transition-all"
-                  >
-                    PartnerSHB
-                  </a>
-                </div>
-              </div>
               <a
-                href="/#about"
+                href="https://campushb.hiringbazaar.in"
+                target="_blank"
+                rel="noreferrer"
                 className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 px-4 py-2 rounded-full transition-all duration-300"
               >
-                About
+                For Students
               </a>
-              <Link
-                to="/pricing"
+              <a
+                href="https://partners.hiringbazaar.in"
+                target="_blank"
+                rel="noreferrer"
                 className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 px-4 py-2 rounded-full transition-all duration-300"
               >
-                Pricing
-              </Link>
+                For Partners
+              </a>
               <a
-                href="/#contact"
+                href="#contact"
                 className="text-sm font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 px-4 py-2 rounded-full transition-all duration-300"
               >
                 Contact
@@ -111,68 +85,34 @@ const Header = () => {
           <div className="lg:hidden mt-3 bg-white/95 backdrop-blur-xl rounded-3xl shadow-xl border border-gray-200/50 overflow-hidden">
             <nav className="px-6 py-6 space-y-1">
               <a
-                href="/#home"
+                href="https://hirespark.hiringbazaar.in"
+                target="_blank"
+                rel="noreferrer"
                 className="block text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-xl px-4 py-3 transition-all"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Home
+                For Employers
               </a>
-              <div>
-                <button
-                  onClick={() => setIsProductOpen(!isProductOpen)}
-                  className="w-full text-left text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-xl px-4 py-3 flex items-center justify-between transition-all"
-                >
-                  Products
-                  <ChevronDown className={`w-4 h-4 transition-transform ${isProductOpen ? "rotate-180" : ""}`} />
-                </button>
-                {isProductOpen && (
-                  <div className="pl-4 space-y-1 mt-1">
-                    <a
-                      href="https://campushb.hiringbazaar.in/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block text-sm font-medium text-gray-600 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-xl px-4 py-2.5 transition-all"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Campus HB
-                    </a>
-                    <a
-                      href="https://hirespark.hiringbazaar.in/hr/login"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block text-sm font-medium text-gray-600 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-xl px-4 py-2.5 transition-all"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Hiring Bazaar AI
-                    </a>
-                    <a
-                      href="https://www.partnershb.in/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block text-sm font-medium text-gray-600 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-xl px-4 py-2.5 transition-all"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      PartnerSHB
-                    </a>
-                  </div>
-                )}
-              </div>
               <a
-                href="/#about"
+                href="https://campushb.hiringbazaar.in"
+                target="_blank"
+                rel="noreferrer"
                 className="block text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-xl px-4 py-3 transition-all"
                 onClick={() => setIsMenuOpen(false)}
               >
-                About
+                For Students
               </a>
-              <Link
-                to="/pricing"
+              <a
+                href="https://partners.hiringbazaar.in"
+                target="_blank"
+                rel="noreferrer"
                 className="block text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-xl px-4 py-3 transition-all"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Pricing
-              </Link>
+                For Partners
+              </a>
               <a
-                href="/#contact"
+                href="#contact"
                 className="block text-sm font-medium text-gray-700 hover:text-emerald-600 hover:bg-emerald-50/50 rounded-xl px-4 py-3 transition-all"
                 onClick={() => setIsMenuOpen(false)}
               >

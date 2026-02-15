@@ -5,7 +5,7 @@ import { ArrowLeft, Mail, Phone, Shield } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const PrivacyPolicy = () => {
+const LegalInfo = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -326,4 +326,4 @@ const PrivacyPolicy = () => {
     );
 };
 
-export default PrivacyPolicy;
+export default LegalInfo;

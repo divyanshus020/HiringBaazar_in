@@ -5,7 +5,7 @@ const comparisons = [
   { feature: "Hiring Cost per Role", traditional: "High", bazaar: "30% Lower", icon: TrendingDown },
   { feature: "Quality Consistency", traditional: "Variable", bazaar: "AI-Standardized", icon: TrendingUp },
   { feature: "Agency Transparency", traditional: "None", bazaar: "Full Visibility", icon: Check },
-  { feature: "Payment Security", traditional: "Risky", bazaar: "Escrow Protected", icon: Check },
+  { feature: "Revenue engine", traditional: "", bazaar: "Special Feature", icon: Check },
   { feature: "Analytics & Insights", traditional: "Manual Reports", bazaar: "Real-time Dashboard", icon: Zap },
 ];
 
