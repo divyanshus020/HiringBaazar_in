@@ -1,11 +1,26 @@
-import { Play, Sparkles, Shield, Zap, Volume2, VolumeX } from "lucide-react";
+import { Play, Sparkles, Shield, Zap, Volume2, VolumeX, Pause } from "lucide-react";
 import heroSectionImg from "../assets/HEROSECTION.jpeg";
 import founderVideo from "../assets/hero-video.mp4";
 import { useState, useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
 
 const WhyWeBuiltSection = () => {
   const [isMuted, setIsMuted] = useState(true);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   const toggleMute = () => {
     if (videoRef.current) {
@@ -23,67 +38,110 @@ const WhyWeBuiltSection = () => {
         <div className="flex flex-col lg:flex-row items-center gap-16 xl:gap-24">
 
           {/* Left: Interactive Visual */}
-          <div className="flex-1 relative order-2 lg:order-1 w-full max-w-2xl group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-[3rem] blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
+          <div className="flex-1 relative order-1 lg:order-1 w-full max-w-2xl group min-h-[400px] flex items-center justify-center">
+            {isVisible ? (
+              <>
+                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-[3rem] blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
 
-            <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden bg-white shadow-2xl border border-emerald-50">
-              <video
-                ref={videoRef}
-                src={founderVideo}
-                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1"
-                autoPlay
-                muted={isMuted}
-                loop
-                playsInline
-              />
+                <div className="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden bg-white shadow-2xl border border-emerald-50">
+                  <video
+                    ref={videoRef}
+                    src={founderVideo}
+                    className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110 group-hover:rotate-1"
+                    autoPlay
+                    muted={isMuted}
+                    loop
+                    playsInline
+                  />
 
-              {/* Audio Toggle Button */}
-              <button
-                onClick={toggleMute}
-                className="absolute bottom-6 left-6 p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white hover:bg-white/40 transition-all z-20 group/audio"
-                title={isMuted ? "Unmute" : "Mute"}
-              >
-                {isMuted ? (
-                  <VolumeX className="w-5 h-5" />
-                ) : (
-                  <Volume2 className="w-5 h-5" />
-                )}
-              </button>
+                  {/* Close Button */}
+                  <button
+                    onClick={() => setIsVisible(false)}
+                    className="absolute top-6 right-6 p-2 bg-black/40 backdrop-blur-md rounded-full text-white hover:bg-black/60 transition-all z-30"
+                    title="Close Video"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
 
-              {/* Inner Glass Cards */}
-              <div className="absolute top-8 left-8 p-4 bg-white/40 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl max-w-[200px] animate-bounce duration-3000">
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="p-1.5 bg-emerald-500 rounded-lg text-white">
-                    <Zap className="w-4 h-4" />
+                  {/* Audio & Play Controls */}
+                  <div className="absolute bottom-6 left-6 flex items-center gap-3 z-20">
+                    <button
+                      onClick={toggleMute}
+                      className="p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white hover:bg-white/40 transition-all group/audio"
+                      title={isMuted ? "Unmute" : "Mute"}
+                    >
+                      {isMuted ? (
+                        <VolumeX className="w-5 h-5" />
+                      ) : (
+                        <Volume2 className="w-5 h-5" />
+                      )}
+                    </button>
+
+                    <button
+                      onClick={togglePlay}
+                      className="p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white hover:bg-white/40 transition-all group/play"
+                      title={isPlaying ? "Pause" : "Play"}
+                    >
+                      {isPlaying ? (
+                        <Pause className="w-5 h-5" />
+                      ) : (
+                        <Play className="w-5 h-5 fill-current" />
+                      )}
+                    </button>
                   </div>
-                  <span className="text-xs font-black text-emerald-900 uppercase">Legacy Problem</span>
-                </div>
-                <p className="text-[10px] font-bold text-emerald-900/60 leading-tight">
-                  Traditional hiring is fragmented, slow, and costs 3x more.
-                </p>
-              </div>
 
-              <div className="absolute bottom-8 right-8 p-6 bg-[#059669]/90 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl max-w-[240px] transform group-hover:translate-x-[-10px] transition-transform">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2 bg-emerald-400 rounded-xl text-white">
-                    <Sparkles className="w-5 h-5" />
+                  {/* Inner Glass Cards */}
+                  <div className="absolute top-8 left-8 p-4 bg-white/40 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl max-w-[200px] animate-bounce duration-3000">
+                    <div className="flex items-center gap-2 mb-2">
+                      <div className="p-1.5 bg-emerald-500 rounded-lg text-white">
+                        <Zap className="w-4 h-4" />
+                      </div>
+                      <span className="text-xs font-black text-emerald-900 uppercase">Legacy Problem</span>
+                    </div>
+                    <p className="text-[10px] font-bold text-emerald-900/60 leading-tight">
+                      Traditional hiring is fragmented, slow, and costs 3x more.
+                    </p>
                   </div>
-                  <span className="text-sm font-black text-white uppercase tracking-wider">HB Vision</span>
-                </div>
-                <p className="text-xs font-bold text-emerald-50 leading-relaxed">
-                  We built HB to empower HRs with verified human networks and AI precision.
-                </p>
-              </div>
-            </div>
 
-            {/* Floaties */}
-            <div className="absolute -top-6 -left-6 w-20 h-20 bg-white rounded-full shadow-2xl flex items-center justify-center border border-emerald-50 animate-pulse">
-              <Shield className="w-10 h-10 text-emerald-500" />
-            </div>
+                  <div className="absolute bottom-8 right-8 p-6 bg-[#059669]/90 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl max-w-[240px] transform group-hover:translate-x-[-10px] transition-transform">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="p-2 bg-emerald-400 rounded-xl text-white">
+                        <Sparkles className="w-5 h-5" />
+                      </div>
+                      <span className="text-sm font-black text-white uppercase tracking-wider">HB Vision</span>
+                    </div>
+                    <p className="text-xs font-bold text-emerald-50 leading-relaxed">
+                      We built HB to empower HRs with verified human networks and AI precision.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Floaties */}
+                <div className="absolute -top-6 -left-6 w-20 h-20 bg-white rounded-full shadow-2xl flex items-center justify-center border border-emerald-50 animate-pulse">
+                  <Shield className="w-10 h-10 text-emerald-500" />
+                </div>
+              </>
+            ) : (
+              <div className="flex flex-col items-center gap-6 p-12 bg-emerald-50/50 rounded-[3.5rem] border border-emerald-100 border-dashed animate-fade-in w-full h-full">
+                <div className="w-20 h-20 rounded-full bg-emerald-100 flex items-center justify-center">
+                  <Play className="w-10 h-10 text-emerald-600 ml-1" />
+                </div>
+                <div className="text-center">
+                  <h4 className="text-xl font-bold text-emerald-900 mb-2">Want to see the vision?</h4>
+                  <p className="text-emerald-700/60 font-medium">Watch the founders story video</p>
+                </div>
+                <Button
+                  onClick={() => setIsVisible(true)}
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl px-8"
+                >
+                  Watch Story Video
+                </Button>
+              </div>
+            )}
           </div>
 
           {/* Right: Storytelling Content */}
-          <div className="flex-1 order-1 lg:order-2">
+          <div className="flex-1 order-2 lg:order-2">
             <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-emerald-100/50 border border-emerald-200 text-[#059669] text-xs font-black uppercase tracking-[0.2em] mb-8">
               The Mission
             </div>

@@ -36,8 +36,7 @@ const HeroSection = () => {
           <div className="flex-1 max-w-2xl text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-sm font-bold mb-8 animate-fade-in shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              TIDES IIT Roorkee Backed • Featured on Zee TV Ideabaaz • Trusted by Growing Teams
-              Automate Hiring. Monetize Talent. Hire Faster.
+              TIDES IIT Roorkee Backed • Featured on Zee TV Ideabaaz.
             </div>
 
             <h1 className="text-5xl md:text-6xl xl:text-7xl font-bold mb-8 text-[#059669] leading-[1.05] tracking-tight font-serif">
@@ -47,7 +46,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-[#4A5D54]/90 mb-12 leading-relaxed font-medium max-w-xl mx-auto lg:mx-0">
-              AI-powered hiring platform that automates recruitment
+              AI-powered hiring platform that automates recruitment,
               <span className="text-emerald-700 font-bold mx-1">turns your candidate database into a revenue engine,</span>
               and helps you source high-quality talent through exclusive networks.
             </p>

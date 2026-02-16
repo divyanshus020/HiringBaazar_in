@@ -60,7 +60,7 @@ const Header = () => {
             {/* Desktop CTA Buttons */}
             <div className="hidden lg:flex items-center gap-1">
 
-              <a href="#demo-video" className="group bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full px-6 py-2.5 text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center">
+              <a href="#how-it-works" className="group bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full px-6 py-2.5 text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center">
                 See a demo
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -129,7 +129,7 @@ const Header = () => {
                   Sign in
                 </a>
                 <a
-                  href="#demo-video"
+                  href="#how-it-works"
                   className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-full px-6 py-3 text-sm font-semibold shadow-md text-center flex items-center justify-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
