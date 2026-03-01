@@ -143,18 +143,7 @@ const HowItWorksSection = () => {
                       </span>
                     </div>
 
-                    {/* Floating UI Bits */}
-                    <div className="absolute top-10 right-10 p-4 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl animate-float">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                          <CheckCircle className="w-5 h-5 text-emerald-400" />
-                        </div>
-                        <div>
-                          <p className="text-[10px] font-black text-emerald-400 uppercase">Verification</p>
-                          <p className="text-[11px] text-white font-bold">Candidate Verified ✓</p>
-                        </div>
-                      </div>
-                    </div>
+
                   </div>
                 </div>
 

@@ -90,30 +90,7 @@ const WhyWeBuiltSection = () => {
                     </button>
                   </div>
 
-                  {/* Inner Glass Cards */}
-                  <div className="absolute top-8 left-8 p-4 bg-white/40 backdrop-blur-xl rounded-2xl border border-white/40 shadow-xl max-w-[200px] animate-bounce duration-3000">
-                    <div className="flex items-center gap-2 mb-2">
-                      <div className="p-1.5 bg-emerald-500 rounded-lg text-white">
-                        <Zap className="w-4 h-4" />
-                      </div>
-                      <span className="text-xs font-black text-emerald-900 uppercase">Legacy Problem</span>
-                    </div>
-                    <p className="text-[10px] font-bold text-emerald-900/60 leading-tight">
-                      Traditional hiring is fragmented, slow, and costs 3x more.
-                    </p>
-                  </div>
 
-                  <div className="absolute bottom-8 right-8 p-6 bg-[#059669]/90 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl max-w-[240px] transform group-hover:translate-x-[-10px] transition-transform">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 bg-emerald-400 rounded-xl text-white">
-                        <Sparkles className="w-5 h-5" />
-                      </div>
-                      <span className="text-sm font-black text-white uppercase tracking-wider">HB Vision</span>
-                    </div>
-                    <p className="text-xs font-bold text-emerald-50 leading-relaxed">
-                      We built HB to empower HRs with verified human networks and AI precision.
-                    </p>
-                  </div>
                 </div>
 
                 {/* Floaties */}
