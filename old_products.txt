@@ -44,7 +44,7 @@ const products = [
     glowColor: "#f43f5e",
     borderGradient: "from-rose-400 via-rose-500 to-rose-400",
     popular: true,
-    link: "https://www.partnershb.in/",
+    link: "https://partners.hiringbazaar.in/",
   },
 
   {

@@ -12,14 +12,26 @@ const Footer = () => {
       { name: "Contact", href: "/#contact" },
     ],
     products: [
-      { name: "Campus HB", href: "https://campushb.hiringbazaar.in/", external: true },
-      { name: "Hiring Bazaar AI", href: "https://hirespark.hiringbazaar.in/hr/login", external: true },
-      { name: "PartnerSHB", href: "https://www.partnershb.in/", external: true },
+      {
+        name: "Campus HB",
+        href: "https://campushb.hiringbazaar.in/",
+        external: true,
+      },
+      {
+        name: "Hiring Bazaar AI",
+        href: "https://hirespark.hiringbazaar.in/hr/login",
+        external: true,
+      },
+      {
+        name: "PartnerSHB",
+        href: "https://partners.hiringbazaar.in/",
+        external: true,
+      },
     ],
     legal: [
       { name: "Privacy Policy", href: "/privacy-policy" },
       { name: "Terms of Service", href: "/terms-of-service" },
-    ]
+    ],
   };
 
   const socialLinks = [
@@ -31,7 +43,7 @@ const Footer = () => {
           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
         </svg>
       ),
-      color: "#0A66C2"
+      color: "#0A66C2",
     },
   ];
 
@@ -52,7 +64,12 @@ const Footer = () => {
             scale: [1, 1.3, 1],
             opacity: [0.03, 0.08, 0.03],
           }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald/5 rounded-full blur-[120px]"
         />
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]" />
@@ -60,7 +77,6 @@ const Footer = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-
           {/* Brand Column */}
           <div className="lg:col-span-4 max-w-sm">
             <motion.div
@@ -69,7 +85,11 @@ const Footer = () => {
               viewport={{ once: true }}
               className="flex items-center gap-3 mb-6"
             >
-              <img src={Logo} alt="Hiring Bazaar Logo" className="w-10 h-10 object-contain rounded-lg" />
+              <img
+                src={Logo}
+                alt="Hiring Bazaar Logo"
+                className="w-10 h-10 object-contain rounded-lg"
+              />
               <h2 className="text-2xl font-bold font-serif tracking-tight text-gray-900">
                 Hiring<span className="text-gradient">Bazaar</span>
               </h2>
@@ -81,8 +101,9 @@ const Footer = () => {
               transition={{ delay: 0.1 }}
               className="text-gray-600 text-base leading-relaxed mb-8"
             >
-              Revolutionizing Talent Acquisition through AI and Strategic Collaboration.
-              We're dedicated to fixing the broken hiring pipeline with precision and empathy.
+              Revolutionizing Talent Acquisition through AI and Strategic
+              Collaboration. We're dedicated to fixing the broken hiring
+              pipeline with precision and empathy.
             </motion.p>
             <div className="flex items-center gap-4">
               {socialLinks.map((social, idx) => (
@@ -95,7 +116,10 @@ const Footer = () => {
                   className="w-10 h-10 rounded-xl bg-white border border-gray-100 flex items-center justify-center shadow-sm hover:shadow-md transition-all duration-300 group"
                   aria-label={social.name}
                 >
-                  <social.icon className="w-6 h-6 transition-all duration-300 group-hover:scale-110" style={{ color: social.color }} />
+                  <social.icon
+                    className="w-6 h-6 transition-all duration-300 group-hover:scale-110"
+                    style={{ color: social.color }}
+                  />
                 </motion.a>
               ))}
             </div>
@@ -138,7 +162,9 @@ const Footer = () => {
                     >
                       <span className="w-0 group-hover:w-1.5 h-[1.5px] bg-primary transition-all duration-300"></span>
                       {link.name}
-                      {link.external && <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -rotate-45 transition-all" />}
+                      {link.external && (
+                        <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 -rotate-45 transition-all" />
+                      )}
                     </a>
                   </li>
                 ))}
@@ -153,22 +179,36 @@ const Footer = () => {
               <span className="absolute -bottom-1 left-0 w-1/2 h-[2px] bg-primary rounded-full"></span>
             </h3>
             <div className="space-y-6">
-              <a href="mailto:support@hiringbazaar.in" className="flex items-start gap-4 group">
+              <a
+                href="mailto:support@hiringbazaar.in"
+                className="flex items-start gap-4 group"
+              >
                 <div className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center group-hover:bg-primary/10 transition-all">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">Email Us</p>
-                  <p className="text-sm text-gray-600 group-hover:text-primary transition-colors">support@hiringbazaar.in</p>
+                  <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">
+                    Email Us
+                  </p>
+                  <p className="text-sm text-gray-600 group-hover:text-primary transition-colors">
+                    support@hiringbazaar.in
+                  </p>
                 </div>
               </a>
-              <a href="tel:+919145938795" className="flex items-start gap-4 group">
+              <a
+                href="tel:+919145938795"
+                className="flex items-start gap-4 group"
+              >
                 <div className="w-10 h-10 rounded-xl bg-primary/5 border border-primary/10 flex items-center justify-center group-hover:bg-primary/10 transition-all">
                   <Phone className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">Call Us</p>
-                  <p className="text-sm text-gray-600 group-hover:text-primary transition-colors">+91 91459 38795</p>
+                  <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">
+                    Call Us
+                  </p>
+                  <p className="text-sm text-gray-600 group-hover:text-primary transition-colors">
+                    +91 91459 38795
+                  </p>
                 </div>
               </a>
               <div className="flex items-start gap-4">
@@ -176,8 +216,12 @@ const Footer = () => {
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">Location</p>
-                  <p className="text-sm text-gray-600 leading-relaxed">TIDES, IIT Roorkee, Uttarakhand</p>
+                  <p className="text-xs text-gray-400 uppercase tracking-wider font-bold mb-1">
+                    Location
+                  </p>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    TIDES, IIT Roorkee, Uttarakhand
+                  </p>
                 </div>
               </div>
             </div>
@@ -187,7 +231,8 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-sm text-gray-400 font-medium">
-            © {currentYear} <span className="text-gray-500">Hiring Bazaar</span>. All rights reserved.
+            © {currentYear} <span className="text-gray-500">Hiring Bazaar</span>
+            . All rights reserved.
           </p>
           <div className="flex items-center gap-8">
             {footerLinks.legal.map((link, idx) => (
@@ -218,4 +263,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

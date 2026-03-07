@@ -1,152 +1,220 @@
-import { Building2, Users, GraduationCap, Check, Sparkles, X, ArrowRight, Zap, TrendingUp } from "lucide-react";
+import {
+  Users,
+  GraduationCap,
+  Check,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
+
 import { Button } from "@/components/ui/button";
-import { useState, useEffect, useRef } from "react";
+import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { motion } from "framer-motion";
 
 const products = [
-    {
-        icon: Sparkles,
-        title: "Hiring Bazaar AI",
-        subtitle: "For HR and Companies",
-        description: "Increase your HR productivity by up to 3x with AI-powered automation",
-        features: [
-            "AI candidate matching",
-            "Automated workflows",
-            "Single Platform for all Job boards",
-            "Access to Our Special Networks"
-        ],
-        cta: "Explore Hiring Bazaar AI",
-        gradient: "from-emerald-500 to-teal-500",
-        iconBg: "bg-emerald-50",
-        glowColor: "#10b981",
-        popular: true,
-        link: "https://hirespark.hiringbazaar.in/hr/login",
-    },
-    {
-        icon: Users,
-        title: "Placement Agency",
-        subtitle: "For Placement Agencies",
-        description: "Increase your revenue, placements and productivity by up to 3x",
-        features: [
-            "Increase your placements",
-            "Get new clients",
-            "Transparent tracking",
-            "Performance analytics",
-        ],
-        cta: "Join Our Agency Network",
-        gradient: "from-emerald-600 to-emerald-700",
-        iconBg: "bg-emerald-50",
-        glowColor: "#059669",
-        popular: false,
-        link: "https://www.partnershb.in/",
-    },
-    {
-        icon: GraduationCap,
-        title: "Campus Hiring",
-        subtitle: "For Educational Institutions",
-        description: "Revolutionize your college placement process with AI-powered job matching",
-        features: [
-            "Automated student-job matching",
-            "Company profile verification",
-            "Placement tracking & reporting",
-            "Alumni network integration",
-        ],
-        cta: "Empower Your Placements",
-        gradient: "from-[#344D41] to-[#1A2E24]",
-        iconBg: "bg-emerald-50",
-        glowColor: "#344D41",
-        popular: false,
-        link: "https://campushb.hiringbazaar.in/",
-    },
+  {
+    icon: Sparkles,
+    title: "Hiring Bazaar AI",
+    subtitle: "For HR and Companies",
+    description:
+      "Increase your HR productivity by up to 3x with AI-powered automation",
+    features: [
+      "AI candidate matching",
+      "Automated workflows",
+      "Single Platform for all Job boards",
+      "Access to Our Special Networks",
+    ],
+    cta: "Explore Hiring Bazaar AI",
+    link: "https://hirespark.hiringbazaar.in/hr/login",
+  },
+  {
+    icon: Users,
+    title: "Placement Agency",
+    subtitle: "For Placement Agencies",
+    description:
+      "Increase your revenue, placements and productivity by up to 3x",
+    features: [
+      "Increase your placements",
+      "Get new clients",
+      "Transparent tracking",
+      "Performance analytics",
+    ],
+    cta: "Join Our Agency Network",
+    link: "https://partners.hiringbazaar.in/",
+  },
+  {
+    icon: GraduationCap,
+    title: "Campus Hiring",
+    subtitle: "For Educational Institutions",
+    description:
+      "Revolutionize your college placement process with AI-powered job matching",
+    features: [
+      "Automated student-job matching",
+      "Company profile verification",
+      "Placement tracking & reporting",
+      "Alumni network integration",
+    ],
+    cta: "Empower Your Placements",
+    link: "https://campushb.hiringbazaar.in/",
+  },
 ];
 
-const ProductsSection = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const sectionRef = useRef(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) setIsVisible(true);
-            },
-            { threshold: 0.1 }
-        );
-        if (sectionRef.current) observer.observe(sectionRef.current);
-        return () => observer.disconnect();
-    }, []);
-
-    return (
-        <section ref={sectionRef} id="products" className="relative py-24 md:py-40 overflow-hidden bg-[#F7F6F3]">
-            <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-                <div className="text-center mb-20">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-800 text-[10px] font-black uppercase tracking-widest mb-6">
-                        Our Models
-                    </div>
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-[#059669] font-serif leading-tight">
-                        Solutions Tailored for Every Need
-                    </h2>
-                    <p className="text-xl md:text-2xl text-[#344D41] max-w-3xl mx-auto font-medium">
-                        Choose the perfect plan to accelerate your <span className="text-emerald-600">hiring success.</span>
-                    </p>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                    {products.map((product, index) => (
-                        <div
-                            key={index}
-                            className={`group relative transition-all duration-1000 transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
-                            style={{ transitionDelay: `${index * 200}ms` }}
-                        >
-                            <div className={`relative h-full bg-white rounded-[2.5rem] p-8 md:p-10 shadow-xl border border-emerald-50 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col ${product.popular ? 'border-emerald-200 ring-4 ring-emerald-50' : ''}`}>
-
-                                {product.popular && (
-                                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#10b981] text-white px-6 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest shadow-lg">
-                                        Most Popular
-                                    </div>
-                                )}
-
-                                <div className="mb-8">
-                                    <div className={`w-14 h-14 rounded-2xl ${product.iconBg} flex items-center justify-center mb-6`}>
-                                        <product.icon className="w-7 h-7 text-emerald-600" />
-                                    </div>
-                                    <h3 className="text-2xl font-bold text-[#344D41] mb-2">{product.title}</h3>
-                                    <p className="text-xs font-black text-emerald-600 uppercase tracking-widest mb-4">{product.subtitle}</p>
-                                    <p className="text-sm text-[#4A5D54] leading-relaxed mb-6 font-medium">
-                                        {product.description}
-                                    </p>
-                                </div>
-
-                                <div className="space-y-4 mb-10 flex-grow">
-                                    {product.features.map((feature, i) => (
-                                        <div key={i} className="flex items-center gap-3">
-                                            <div className="flex-shrink-0 w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center">
-                                                <Check className="w-3 h-3 text-emerald-600" />
-                                            </div>
-                                            <span className="text-sm text-[#344D41] font-medium">{feature}</span>
-                                        </div>
-                                    ))}
-                                </div>
-
-                                <Button
-                                    onClick={() => window.open(product.link, '_blank')}
-                                    className={`w-full py-7 rounded-2xl text-base font-bold transition-all duration-300 ${product.popular ? 'bg-[#10b981] hover:bg-[#059669] text-white shadow-[0_15px_30px_-10px_rgba(16,185,129,0.3)]' : 'bg-[#344D41] hover:bg-[#1A2E24] text-white'}`}
-                                >
-                                    {product.cta}
-                                    <ArrowRight className="ml-2 w-4 h-4" />
-                                </Button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <style>{`
-        .font-serif {
-          font-family: 'Playfair Display', serif;
-        }
-      `}</style>
-        </section>
-    );
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.18,
+    },
+  },
 };
 
-export default ProductsSection;
+const card = {
+  hidden: { opacity: 0, y: 60 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
+
+export default function ProductsSection() {
+  return (
+    <section className="relative py-20 md:py-20 overflow-hidden bg-[#F7F6F3]">
+      {/* GRID + LASERS */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        {/* emerald grid */}
+        <div
+          className="absolute inset-0 opacity-[0.08]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#10b981 2px, transparent 2px), linear-gradient(90deg,#10b981 2px, transparent 2px)",
+            backgroundSize: "90px 90px",
+          }}
+        />
+
+        {/* horizontal laser */}
+        <motion.div
+          className="absolute h-[2px]"
+          style={{
+            width: "200px",
+            top: "180px",
+            background:
+              "linear-gradient(90deg, transparent, #34d399, #10b981, #34d399, transparent)",
+            boxShadow: "0 0 10px #10b981, 0 0 20px #10b981",
+          }}
+          animate={{ x: ["-200px", "110vw"] }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+
+        {/* vertical laser */}
+        <motion.div
+          className="absolute w-[2px]"
+          style={{
+            height: "200px",
+            left: "270px",
+            background:
+              "linear-gradient(180deg, transparent, #34d399, #10b981, #34d399, transparent)",
+            boxShadow: "0 0 10px #10b981, 0 0 20px #10b981",
+          }}
+          animate={{ y: ["-200px", "110vh"] }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-[1400px] mx-auto px-5 md:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: false }}
+          className="text-center mb-16 md:mb-20"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-800 text-[10px] font-black uppercase tracking-widest mb-6">
+            Our Models
+          </div>
+
+          <h2 className="text-4xl md:text-6xl font-bold text-emerald-700 leading-tight">
+            Solutions Tailored for Every Need
+          </h2>
+
+          <p className="text-xl md:text-2xl text-[#344D41] max-w-3xl mx-auto font-medium py-2">
+            Choose the perfect plan to accelerate your{" "}
+            <span className="text-emerald-600">hiring success.</span>
+          </p>
+        </motion.div>
+
+        {/* Cards */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+        >
+          {products.map((product, i) => (
+            <motion.div
+              key={i}
+              variants={card}
+              whileHover={{ y: -10, scale: 1.03 }}
+              transition={{ duration: 0.35 }}
+              className="h-full"
+            >
+              <CardSpotlight
+                className="
+                flex flex-col h-full
+                shadow-[0_10px_30px_rgba(16,185,129,0.15)]
+                hover:shadow-[0_20px_60px_rgba(16,185,129,0.35)]
+                transition-shadow duration-500
+                "
+              >
+                <product.icon className="w-8 h-8 text-emerald-400 mb-6" />
+
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  {product.title}
+                </h3>
+
+                <p className="text-emerald-300 text-sm mb-4">
+                  {product.subtitle}
+                </p>
+
+                <p className="text-neutral-300 mb-6">{product.description}</p>
+
+                <div className="space-y-3 mb-8 flex-grow">
+                  {product.features.map((f, j) => (
+                    <div
+                      key={j}
+                      className="flex items-center gap-2 text-sm text-neutral-200"
+                    >
+                      <Check className="w-4 h-4 text-emerald-400" />
+                      {f}
+                    </div>
+                  ))}
+                </div>
+
+                <Button
+                  onClick={() => window.open(product.link)}
+                  className="w-full bg-emerald-600 hover:bg-emerald-500 group"
+                >
+                  {product.cta}
+
+                  <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+              </CardSpotlight>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}

@@ -11,6 +11,7 @@ import ComparisonSection from "@/components/ComparisonSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import ScrollShowcase from "@/components/ScrollShowcase";
 
 const Index = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const Index = () => {
       const element = document.querySelector(location.hash);
       if (element) {
         setTimeout(() => {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          element.scrollIntoView({ behavior: "smooth", block: "start" });
         }, 100);
       }
     }
@@ -39,6 +40,7 @@ const Index = () => {
       <main>
         <section id="home">
           <HeroSection />
+          <ScrollShowcase />
         </section>
         <WhyWeBuiltSection />
         <HowItWorksSection />
