@@ -88,7 +88,7 @@ const Header = () => {
           <div className="lg:hidden mt-3 bg-emerald-900/80 backdrop-blur-xl rounded-3xl border border-emerald-800/70 shadow-xl overflow-hidden">
             <nav className="px-6 py-6 space-y-2">
               <a
-                href="https://hirespark.hiringbazaar.in"
+                href="https://hiringai.hiringbazaar.in/"
                 className="block px-4 py-3 rounded-xl hover:bg-white/10 text-white"
               >
                 For Employers
