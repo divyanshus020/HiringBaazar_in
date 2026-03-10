@@ -19,7 +19,7 @@ const Footer = () => {
       },
       {
         name: "Hiring Bazaar AI",
-        href: "https://https://hiringai.hiringbazaar.in//hr/login",
+        href: "https://hiringai.hiringbazaar.in/",
         external: true,
       },
       {

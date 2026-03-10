@@ -24,7 +24,7 @@ const products = [
       "Access to Our Special Networks",
     ],
     cta: "Explore Hiring Bazaar AI",
-    link: "https://https://hiringai.hiringbazaar.in//hr/login",
+    link: "https://hiringai.hiringbazaar.in/",
   },
   {
     icon: Users,
