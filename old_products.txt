@@ -23,7 +23,7 @@ const products = [
     glowColor: "#10b981",
     borderGradient: "from-emerald-400 via-teal-400 to-emerald-400",
     popular: false,
-    link: "https://hirespark.hiringbazaar.in/hr/login",
+    link: "https://https://hiringai.hiringbazaar.in//hr/login",
   },
   {
     icon: Users,

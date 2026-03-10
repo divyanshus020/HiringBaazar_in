@@ -19,7 +19,7 @@ const Footer = () => {
       },
       {
         name: "Hiring Bazaar AI",
-        href: "https://hirespark.hiringbazaar.in/hr/login",
+        href: "https://https://hiringai.hiringbazaar.in//hr/login",
         external: true,
       },
       {
@@ -245,17 +245,7 @@ const Footer = () => {
               </a>
             ))}
           </div>
-          <div className="flex items-center gap-1 text-xs text-gray-400">
-            <span>Built with</span>
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="text-rose-500 mx-1"
-            >
-              ❤
-            </motion.div>
-            <span>at IIT Roorkee</span>
-          </div>
+          
         </div>
       </div>
     </footer>
