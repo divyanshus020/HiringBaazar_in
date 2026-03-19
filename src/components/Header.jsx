@@ -50,7 +50,7 @@ const Header = () => {
                 rel="noreferrer"
                 className={navLink}
               >
-                Partners
+                Partners 
               </a>
 
               <a href="#contact" className={navLink}>
