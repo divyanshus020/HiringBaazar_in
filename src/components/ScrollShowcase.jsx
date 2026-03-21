@@ -6,7 +6,7 @@ import heroImage from "../assets/HEROSECTION.jpeg";
 export default function ScrollShowcase() {
   const ref = useRef(null);
 
-  const isInView = useInView(ref, { margin: "-100px" });
+  const isInView = useInView(ref, { margin: "-100px", once: true });
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -32,6 +32,7 @@ export default function ScrollShowcase() {
                   src={heroImage}
                   alt="HiringBazaar Platform"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -58,7 +59,6 @@ export default function ScrollShowcase() {
                 <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
                   <span className="font-bold">01</span>
                 </div>
-
                 <div>
                   <h3 className="text-lg font-bold text-[#344D41] mb-2">
                     Smart Candidate Matching
@@ -74,7 +74,6 @@ export default function ScrollShowcase() {
                 <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
                   <span className="font-bold">02</span>
                 </div>
-
                 <div>
                   <h3 className="text-lg font-bold text-[#344D41] mb-2">
                     Automated Screening
@@ -89,7 +88,6 @@ export default function ScrollShowcase() {
                 <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
                   <span className="font-bold">03</span>
                 </div>
-
                 <div>
                   <h3 className="text-lg font-bold text-[#344D41] mb-2">
                     Revenue From Talent Pool
@@ -113,6 +111,7 @@ export default function ScrollShowcase() {
               style={{
                 opacity: textOpacity,
                 x: textX,
+                willChange: "transform, opacity",
               }}
               className="
               mt-12
@@ -139,7 +138,6 @@ export default function ScrollShowcase() {
                   <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
                     <span className="font-bold">01</span>
                   </div>
-
                   <div>
                     <h3 className="text-xl font-bold text-[#344D41] mb-2">
                       Smart Candidate Matching
@@ -155,7 +153,6 @@ export default function ScrollShowcase() {
                   <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
                     <span className="font-bold">02</span>
                   </div>
-
                   <div>
                     <h3 className="text-xl font-bold text-[#344D41] mb-2">
                       Automated Screening
@@ -170,7 +167,6 @@ export default function ScrollShowcase() {
                   <div className="w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
                     <span className="font-bold">03</span>
                   </div>
-
                   <div>
                     <h3 className="text-xl font-bold text-[#344D41] mb-2">
                       Revenue From Talent Pool
@@ -188,7 +184,11 @@ export default function ScrollShowcase() {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8 }}
-              style={{ scale, x }}
+              style={{
+                scale,
+                x,
+                willChange: "transform",
+              }}
               className="max-w-4xl mx-auto relative"
             >
               <div className="p-3 bg-white rounded-[2rem] shadow-[0_50px_120px_-20px_rgba(0,0,0,0.2)]">
@@ -197,6 +197,7 @@ export default function ScrollShowcase() {
                     src={heroImage}
                     alt="HiringBazaar Platform"
                     className="w-full h-full object-cover"
+                    loading="lazy"
                   />
                 </div>
               </div>

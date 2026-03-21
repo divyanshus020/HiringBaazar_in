@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Star,
   Quote,
@@ -8,73 +10,85 @@ import {
 } from "lucide-react";
 
 import { motion } from "framer-motion";
+import { useMemo } from "react";
 
-const testimonials = [
-  {
-    quote:
-      "Hiring Bazaar reduced our time-to-hire by 45%. The AI screening is incredibly accurate and has helped us find better candidates faster than ever before.",
-    name: "Kritcure Pharmaceuticals",
-    role: "Healthcare Industry",
-    initials: "KP",
-    color: "emerald",
-  },
-  {
-    quote:
-      "The agency network feature is a game-changer. We now have complete visibility into our recruitment partners' progress and performance.",
-    name: "Changepay",
-    role: "Partner Network",
-    initials: "CP",
-    color: "purple",
-  },
-  {
-    quote:
-      "Campus hiring became very much easier for us. The platform streamlined our entire recruitment process and improved candidate quality significantly.",
-    name: "Oqlous AI",
-    role: "Technology Sector",
-    initials: "OA",
-    color: "blue",
-  },
-];
+export default function TestimonialsSection() {
+  // ✅ memoized data
+  const testimonials = useMemo(
+    () => [
+      {
+        quote:
+          "Hiring Bazaar reduced our time-to-hire by 45%. The AI screening is incredibly accurate and has helped us find better candidates faster than ever before.",
+        name: "Kritcure Pharmaceuticals",
+        role: "Healthcare Industry",
+        initials: "KP",
+        color: "emerald",
+      },
+      {
+        quote:
+          "The agency network feature is a game-changer. We now have complete visibility into our recruitment partners' progress and performance.",
+        name: "Changepay",
+        role: "Partner Network",
+        initials: "CP",
+        color: "purple",
+      },
+      {
+        quote:
+          "Campus hiring became very much easier for us. The platform streamlined our entire recruitment process and improved candidate quality significantly.",
+        name: "Oqlous AI",
+        role: "Technology Sector",
+        initials: "OA",
+        color: "blue",
+      },
+    ],
+    [],
+  );
 
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.25,
+  // ✅ memoized stars
+  const stars = useMemo(() => [...Array(5)], []);
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.25,
+      },
     },
-  },
-};
+  };
 
-const card = {
-  hidden: { opacity: 0, y: 80 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: "easeOut" },
-  },
-};
+  const card = {
+    hidden: { opacity: 0, y: 80 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
 
-const TestimonialsSection = () => {
   return (
     <section className="relative py-24 md:py-32 overflow-hidden bg-white">
       {/* Background Glow */}
-
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-emerald-100/30 rounded-full blur-[120px] animate-pulse" />
+        <div
+          className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-emerald-100/30 rounded-full blur-[120px] animate-pulse"
+          style={{ willChange: "transform" }} // ✅ GPU
+        />
         <div
           className="absolute -bottom-[10%] -right-[10%] w-[40%] h-[40%] bg-teal-100/30 rounded-full blur-[120px] animate-pulse"
-          style={{ animationDelay: "2s" }}
+          style={{
+            animationDelay: "2s",
+            willChange: "transform", // ✅ GPU
+          }}
         />
       </div>
 
       <div className="container mx-auto px-5 md:px-6 relative z-10">
         {/* HEADER */}
-
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          viewport={{ amount: 0.4 }}
+          viewport={{ once: true }} // ✅ FIX
           className="max-w-4xl mx-auto text-center mb-20"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 mb-6">
@@ -110,13 +124,12 @@ const TestimonialsSection = () => {
           </div>
         </motion.div>
 
-        {/* TESTIMONIAL CARDS */}
-
+        {/* CARDS */}
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ amount: 0.25 }}
+          viewport={{ once: true }} // ✅ FIX
           className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start"
         >
           {testimonials.map((t, i) => (
@@ -126,9 +139,8 @@ const TestimonialsSection = () => {
               whileHover={{ y: -10 }}
               transition={{ type: "spring", stiffness: 200 }}
               className={`group relative p-1 rounded-[2.5rem] ${i === 1 ? "md:mt-12" : ""}`}
+              style={{ willChange: "transform" }} // ✅ GPU
             >
-              {/* Glow */}
-
               <div
                 className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl -z-10 ${
                   t.color === "emerald"
@@ -139,15 +151,12 @@ const TestimonialsSection = () => {
                 }`}
               />
 
-              {/* Card */}
-
               <div className="bg-white border border-gray-100 rounded-[2.2rem] p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_20px_50px_rgba(16,185,129,0.1)] transition-all duration-500 h-full flex flex-col justify-between">
                 <div>
-                  {/* Rating */}
-
+                  {/* Stars */}
                   <div className="flex justify-between items-center mb-8">
                     <div className="flex gap-1">
-                      {[...Array(5)].map((_, starI) => (
+                      {stars.map((_, starI) => (
                         <motion.div key={starI} whileHover={{ scale: 1.2 }}>
                           <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
                         </motion.div>
@@ -168,14 +177,10 @@ const TestimonialsSection = () => {
                     </motion.div>
                   </div>
 
-                  {/* Quote */}
-
                   <blockquote className="text-gray-700 text-lg leading-relaxed font-medium mb-10 italic">
                     "{t.quote}"
                   </blockquote>
                 </div>
-
-                {/* Author */}
 
                 <div className="flex items-center gap-4 bg-gray-50/50 p-4 rounded-3xl border border-gray-100">
                   <motion.div
@@ -207,6 +212,4 @@ const TestimonialsSection = () => {
       </div>
     </section>
   );
-};
-
-export default TestimonialsSection;
+}

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Users,
   GraduationCap,
@@ -9,77 +11,82 @@ import {
 import { Button } from "@/components/ui/button";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { motion } from "framer-motion";
-
-const products = [
-  {
-    icon: Sparkles,
-    title: "Hiring Bazaar AI",
-    subtitle: "For HR and Companies",
-    description:
-      "Increase your HR productivity by up to 3x with AI-powered automation",
-    features: [
-      "AI candidate matching",
-      "Automated workflows",
-      "Single Platform for all Job boards",
-      "Access to Our Special Networks",
-    ],
-    cta: "Explore Hiring Bazaar AI",
-    link: "https://hirespark.hiringbazaar.in/hr/login",
-  },
-  {
-    icon: Users,
-    title: "Placement Agency",
-    subtitle: "For Placement Agencies",
-    description:
-      "Increase your revenue, placements and productivity by up to 3x",
-    features: [
-      "Increase your placements",
-      "Get new clients",
-      "Transparent tracking",
-      "Performance analytics",
-    ],
-    cta: "Join Our Agency Network",
-    link: "https://partners.hiringbazaar.in/",
-  },
-  {
-    icon: GraduationCap,
-    title: "Campus Hiring",
-    subtitle: "For Educational Institutions",
-    description:
-      "Revolutionize your college placement process with AI-powered job matching",
-    features: [
-      "Automated student-job matching",
-      "Company profile verification",
-      "Placement tracking & reporting",
-      "Alumni network integration",
-    ],
-    cta: "Empower Your Placements",
-    link: "https://campushb.hiringbazaar.in/",
-  },
-];
-
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.18,
-    },
-  },
-};
-
-const card = {
-  hidden: { opacity: 0, y: 60 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
+import { useMemo } from "react";
 
 export default function ProductsSection() {
+  // ✅ memoized products (prevents re-creation)
+  const products = useMemo(
+    () => [
+      {
+        icon: Sparkles,
+        title: "Hiring Bazaar AI",
+        subtitle: "For HR and Companies",
+        description:
+          "Increase your HR productivity by up to 3x with AI-powered automation",
+        features: [
+          "AI candidate matching",
+          "Automated workflows",
+          "Single Platform for all Job boards",
+          "Access to Our Special Networks",
+        ],
+        cta: "Explore Hiring Bazaar AI",
+        link: "https://hirespark.hiringbazaar.in/hr/login",
+      },
+      {
+        icon: Users,
+        title: "Placement Agency",
+        subtitle: "For Placement Agencies",
+        description:
+          "Increase your revenue, placements and productivity by up to 3x",
+        features: [
+          "Increase your placements",
+          "Get new clients",
+          "Transparent tracking",
+          "Performance analytics",
+        ],
+        cta: "Join Our Agency Network",
+        link: "https://partners.hiringbazaar.in/",
+      },
+      {
+        icon: GraduationCap,
+        title: "Campus Hiring",
+        subtitle: "For Educational Institutions",
+        description:
+          "Revolutionize your college placement process with AI-powered job matching",
+        features: [
+          "Automated student-job matching",
+          "Company profile verification",
+          "Placement tracking & reporting",
+          "Alumni network integration",
+        ],
+        cta: "Empower Your Placements",
+        link: "https://campushb.hiringbazaar.in/",
+      },
+    ],
+    [],
+  );
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.18,
+      },
+    },
+  };
+
+  const card = {
+    hidden: { opacity: 0, y: 60 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
   return (
     <section className="relative py-20 md:py-20 overflow-hidden bg-[#F7F6F3]">
       {/* GRID + LASERS */}
@@ -103,6 +110,8 @@ export default function ProductsSection() {
             background:
               "linear-gradient(90deg, transparent, #34d399, #10b981, #34d399, transparent)",
             boxShadow: "0 0 10px #10b981, 0 0 20px #10b981",
+            willChange: "transform",
+            transform: "translateZ(0)",
           }}
           animate={{ x: ["-200px", "110vw"] }}
           transition={{
@@ -121,6 +130,8 @@ export default function ProductsSection() {
             background:
               "linear-gradient(180deg, transparent, #34d399, #10b981, #34d399, transparent)",
             boxShadow: "0 0 10px #10b981, 0 0 20px #10b981",
+            willChange: "transform",
+            transform: "translateZ(0)",
           }}
           animate={{ y: ["-200px", "110vh"] }}
           transition={{
@@ -137,7 +148,7 @@ export default function ProductsSection() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          viewport={{ once: false }}
+          viewport={{ once: true }} // ✅ FIXED
           className="text-center mb-16 md:mb-20"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-800 text-[10px] font-black uppercase tracking-widest mb-6">
@@ -159,7 +170,7 @@ export default function ProductsSection() {
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false }}
+          viewport={{ once: true }} // ✅ FIXED
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
         >
           {products.map((product, i) => (
@@ -168,6 +179,7 @@ export default function ProductsSection() {
               variants={card}
               whileHover={{ y: -10, scale: 1.03 }}
               transition={{ duration: 0.35 }}
+              style={{ willChange: "transform" }} // ✅ GPU hint
               className="h-full"
             >
               <CardSpotlight

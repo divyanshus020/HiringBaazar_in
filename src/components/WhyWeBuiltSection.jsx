@@ -47,7 +47,7 @@ const WhyWeBuiltSection = () => {
     <motion.section
       initial="hidden"
       whileInView="show"
-      viewport={{ margin: "-100px" }}
+      viewport={{ margin: "-50px", once: true }}
       variants={container}
       className="relative py-20 md:py-32 overflow-hidden bg-white"
     >

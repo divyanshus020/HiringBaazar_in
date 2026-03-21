@@ -37,6 +37,7 @@ function ContactForm() {
   if (state.succeeded) {
     return (
       <motion.div
+        style={{ willChange: "transform, opacity" }}
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         className="text-center py-12 bg-white/80 backdrop-blur-xl rounded-3xl border border-emerald-200/50 shadow-2xl"
@@ -62,7 +63,7 @@ function ContactForm() {
       variants={container}
       initial="hidden"
       whileInView="show"
-      viewport={{ amount: 0.3 }}
+      viewport={{ once: true, amount: 0.3 }}
       className="w-full max-w-3xl mx-auto space-y-6"
     >
       {/* First Name & Last Name */}
@@ -184,6 +185,7 @@ function ContactForm() {
 
       <motion.div variants={item}>
         <Button
+          style={{ willChange: "transform" }}
           type="submit"
           disabled={state.submitting}
           className="group w-full bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-600 hover:from-emerald-700 hover:via-teal-700 hover:to-emerald-700 text-white rounded-2xl px-8 py-6 text-lg font-semibold shadow-2xl hover:shadow-emerald-500/50 transition-all duration-300 hover:scale-[1.02] relative overflow-hidden"
@@ -251,7 +253,7 @@ const CTASection = () => {
           initial={{ opacity: 0, y: 70 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          viewport={{ amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="text-center max-w-4xl mx-auto mb-16"
         >
           {/* badge kept */}
@@ -282,7 +284,7 @@ const CTASection = () => {
           variants={container}
           initial="hidden"
           whileInView="show"
-          viewport={{ amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex flex-wrap justify-center gap-4 mb-12"
         >
           <motion.div

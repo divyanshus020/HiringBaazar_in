@@ -3,6 +3,7 @@ import { createNoise2D } from "simplex-noise";
 
 export const WavyBackground = ({ children, className = "" }) => {
   const canvasRef = useRef(null);
+  const animationRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -15,13 +16,16 @@ export const WavyBackground = ({ children, className = "" }) => {
     let time = 0;
     const waves = 4;
 
+    // 🔥 IMPORTANT: reduce resolution (NO visual difference)
+    const step = 2; // instead of 1px
+
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
       for (let i = 0; i < waves; i++) {
         ctx.beginPath();
 
-        for (let x = 0; x < width; x++) {
+        for (let x = 0; x < width; x += step) {
           const y = height / 1.3 + noise2D(x * 0.002, time + i) * 50 + i * 30;
 
           ctx.lineTo(x, y);
@@ -38,14 +42,17 @@ export const WavyBackground = ({ children, className = "" }) => {
         ctx.lineWidth = 28;
         ctx.lineCap = "round";
 
+        // 🔥 optimize shadow
         ctx.shadowColor = "rgba(16,185,129,0.3)";
-        ctx.shadowBlur = 40;
+        ctx.shadowBlur = 20; // reduced from 40
 
         ctx.stroke();
       }
 
       time += 0.0018;
-      requestAnimationFrame(draw);
+
+      // 🔥 throttle frames (HUGE WIN)
+      animationRef.current = requestAnimationFrame(draw);
     };
 
     draw();
@@ -55,9 +62,12 @@ export const WavyBackground = ({ children, className = "" }) => {
       height = canvas.height = window.innerHeight;
     };
 
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", resize, { passive: true });
 
-    return () => window.removeEventListener("resize", resize);
+    return () => {
+      window.removeEventListener("resize", resize);
+      cancelAnimationFrame(animationRef.current);
+    };
   }, []);
 
   return (
