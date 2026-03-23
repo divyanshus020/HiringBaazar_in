@@ -91,7 +91,7 @@ const HeroSection = () => {
                 asChild
                 className="bg-[#10b981] hover:bg-[#059669] text-white rounded-xl px-7 py-5 md:px-8 md:py-6 text-base md:text-lg font-semibold shadow-lg w-full sm:w-auto"
               >
-                <a href="https://hirespark.hiringbazaar.in/hr/login">
+                <a href="https://hiringai.hiringbazaar.in/signup">
                   Start Hiring Now »
                 </a>
               </Button>

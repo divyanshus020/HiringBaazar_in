@@ -14,7 +14,6 @@ import { motion } from "framer-motion";
 import { useMemo } from "react";
 
 export default function ProductsSection() {
-  // ✅ memoized products (prevents re-creation)
   const products = useMemo(
     () => [
       {
@@ -30,7 +29,7 @@ export default function ProductsSection() {
           "Access to Our Special Networks",
         ],
         cta: "Explore Hiring Bazaar AI",
-        link: "https://hirespark.hiringbazaar.in/hr/login",
+        link: "https://hiringai.hiringbazaar.in/",
       },
       {
         icon: Users,

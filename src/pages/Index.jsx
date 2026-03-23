@@ -1,23 +1,34 @@
+import { lazy, Suspense } from "react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+
+// ── Above the fold: eagerly imported (must paint immediately) ──────────────
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import WhyWeBuiltSection from "@/components/WhyWeBuiltSection";
-import ProductsSection from "@/components/ProductsSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
-import TrustSection from "@/components/TrustSection";
-import ComparisonSection from "@/components/ComparisonSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import CTASection from "@/components/CTASection";
-import Footer from "@/components/Footer";
-import ScrollShowcase from "@/components/ScrollShowcase";
+
+// ── Below the fold: lazy loaded (browser fetches these AFTER first paint) ──
+// Each becomes a separate JS chunk — only downloaded when needed
+const ScrollShowcase = lazy(() => import("@/components/ScrollShowcase"));
+const WhyWeBuiltSection = lazy(() => import("@/components/WhyWeBuiltSection"));
+const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection"));
+const ProductsSection = lazy(() => import("@/components/ProductsSection"));
+const TrustSection = lazy(() => import("@/components/TrustSection"));
+const ComparisonSection = lazy(() => import("@/components/ComparisonSection"));
+const TestimonialsSection = lazy(
+  () => import("@/components/TestimonialsSection"),
+);
+const CTASection = lazy(() => import("@/components/CTASection"));
+const Footer = lazy(() => import("@/components/Footer"));
+
+// Invisible fallback — sections already have their own enter animations,
+// a spinner would flash and look broken
+const Blank = () => <div aria-hidden="true" />;
 
 const Index = () => {
   const location = useLocation();
 
   useEffect(() => {
-    // Handle hash navigation (e.g., /#about, /#contact)
     if (location.hash) {
       const element = document.querySelector(location.hash);
       if (element) {
@@ -37,24 +48,38 @@ const Index = () => {
       transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <Header />
+
       <main>
+        {/* ── Hero: no Suspense needed, eagerly loaded ── */}
         <section id="home">
           <HeroSection />
-          <ScrollShowcase />
+
+          {/* ScrollShowcase is right below hero — lazy but Suspense-wrapped */}
+          <Suspense fallback={<Blank />}>
+            <ScrollShowcase />
+          </Suspense>
         </section>
-        <WhyWeBuiltSection />
-        <HowItWorksSection />
-        <ProductsSection />
-        <TrustSection />
-        <ComparisonSection />
-        <TestimonialsSection />
-        <section id="contact">
-          <CTASection />
-        </section>
+
+        {/* ── Everything below: one Suspense boundary for the whole rest of page ── */}
+        {/* They all load in parallel as one chunk group, not sequentially */}
+        <Suspense fallback={<Blank />}>
+          <WhyWeBuiltSection />
+          <HowItWorksSection />
+          <ProductsSection />
+          <TrustSection />
+          <ComparisonSection />
+          <TestimonialsSection />
+          <section id="contact">
+            <CTASection />
+          </section>
+        </Suspense>
       </main>
-      <section id="about">
-        <Footer />
-      </section>
+
+      <Suspense fallback={<Blank />}>
+        <section id="about">
+          <Footer />
+        </section>
+      </Suspense>
     </motion.div>
   );
 };

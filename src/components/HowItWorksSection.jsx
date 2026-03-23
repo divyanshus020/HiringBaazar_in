@@ -7,8 +7,8 @@ import {
   Volume2,
   VolumeX,
 } from "lucide-react";
-import { useState, useRef, useMemo } from "react";
-import { Boxes } from "@/components/ui/boxes";
+import { useState, useRef } from "react";
+import { NeuralBackground } from "@/components/ui/boxes";
 import { motion } from "framer-motion";
 import demoVideo from "../assets/DEMOVIDEO.mp4";
 
@@ -20,45 +20,41 @@ const FLOAT_CSS = `
   .float-anim { animation: floatY 3s ease-in-out infinite; }
 `;
 
+const STEPS = [
+  {
+    icon: <Zap className="w-6 h-6" />,
+    title: "Post Once",
+    desc: "Add your job — no need to manage multiple platforms.",
+  },
+  {
+    icon: <Search className="w-6 h-6" />,
+    title: "Sourcing simplified",
+    desc: "AI and expert recruiters find the best candidates.",
+  },
+  {
+    icon: <UserPlus className="w-6 h-6" />,
+    title: "Hire Faster",
+    desc: "Get verified candidates ready for interviews.",
+  },
+];
+
 const HowItWorksSection = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
 
-  const steps = useMemo(
-    () => [
-      {
-        icon: <Zap className="w-6 h-6" />,
-        title: "Post Once",
-        desc: "Add your job — no need to manage multiple platforms.",
-      },
-      {
-        icon: <Search className="w-6 h-6" />,
-        title: "Sourcing simplified",
-        desc: "AI and expert recruiters find the best candidates.",
-      },
-      {
-        icon: <UserPlus className="w-6 h-6" />,
-        title: "Hire Faster",
-        desc: "Get verified candidates ready for interviews.",
-      },
-    ],
-    [],
-  );
-
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(videoRef.current.muted);
-    }
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setIsMuted(v.muted);
   };
 
   const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) videoRef.current.pause();
-      else videoRef.current.play();
-      setIsPlaying(!isPlaying);
-    }
+    const v = videoRef.current;
+    if (!v) return;
+    isPlaying ? v.pause() : v.play();
+    setIsPlaying((p) => !p);
   };
 
   return (
@@ -69,10 +65,15 @@ const HowItWorksSection = () => {
         id="how-it-works"
         className="relative py-20 md:py-32 overflow-hidden bg-[#022c22]"
       >
-        <Boxes />
+        <NeuralBackground />
 
-        <div className="max-w-[1400px] mx-auto px-6 relative z-10 pointer-events-none">
-          {/* HEADER — own whileInView, same pattern as TrustSection */}
+        {/*
+          ✅ FIX: removed pointer-events-none from this wrapper entirely.
+          The NeuralBackground already has pointer-events-none on itself,
+          so we don't need to suppress clicks on the whole content layer.
+        */}
+        <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+          {/* HEADER */}
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,9 +93,9 @@ const HowItWorksSection = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            {/* LEFT STEPS — each step has its own whileInView + delay */}
-            <div className="lg:col-span-4 space-y-10 pointer-events-auto">
-              {steps.map((step, idx) => (
+            {/* LEFT STEPS */}
+            <div className="lg:col-span-4 space-y-10">
+              {STEPS.map((step, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 80 }}
@@ -122,13 +123,13 @@ const HowItWorksSection = () => {
               ))}
             </div>
 
-            {/* VIDEO — own whileInView */}
+            {/* VIDEO */}
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.1 }}
               viewport={{ once: true }}
-              className="lg:col-span-8 relative min-h-[300px] md:min-h-[400px] flex flex-col items-center justify-center pointer-events-auto"
+              className="lg:col-span-8 relative min-h-[300px] md:min-h-[400px] flex flex-col items-center justify-center"
             >
               <div className="float-anim w-full">
                 <div className="relative rounded-[2rem] md:rounded-[3rem] p-3 md:p-4 bg-emerald-900/30 border border-emerald-800 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)]">
@@ -147,10 +148,15 @@ const HowItWorksSection = () => {
                       onEnded={() => setIsPlaying(false)}
                     />
 
-                    {/* MUTE */}
+                    {/*
+                      ✅ FIX: Mute button is always visible and always clickable.
+                      Was buried inside the play overlay which had pointer-events-none
+                      when playing. Now it sits at its own z-level independently.
+                    */}
                     <button
                       onClick={toggleMute}
-                      className="absolute bottom-5 left-5 p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white hover:bg-white/40 transition"
+                      className="absolute bottom-5 left-5 z-20 p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white hover:bg-white/40 transition"
+                      aria-label={isMuted ? "Unmute" : "Mute"}
                     >
                       {isMuted ? (
                         <VolumeX className="w-5 h-5" />
@@ -159,28 +165,37 @@ const HowItWorksSection = () => {
                       )}
                     </button>
 
-                    {/* PLAY OVERLAY */}
-                    <div
-                      className={`absolute inset-0 flex flex-col items-center justify-center bg-emerald-950/20 transition ${
-                        isPlaying
-                          ? "opacity-0 pointer-events-none"
-                          : "opacity-100"
-                      }`}
-                    >
+                    {/*
+                      ✅ FIX: Persistent pause button shown in corner while playing.
+                      Previously the only pause trigger was the overlay which turned
+                      opacity-0 + pointer-events-none while playing — so users had
+                      no way to pause after pressing play.
+                    */}
+                    {isPlaying && (
                       <button
                         onClick={togglePlay}
-                        className="w-20 h-20 md:w-24 md:h-24 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(16,185,129,0.5)] transition hover:scale-110"
+                        className="absolute top-5 right-5 z-20 p-3 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white hover:bg-white/40 transition"
+                        aria-label="Pause"
                       >
-                        {isPlaying ? (
-                          <Pause className="w-8 h-8 md:w-10 md:h-10 fill-current" />
-                        ) : (
-                          <Play className="w-8 h-8 md:w-10 md:h-10 fill-current ml-1" />
-                        )}
+                        <Pause className="w-5 h-5 fill-current" />
                       </button>
-                      <span className="mt-6 text-white text-xs uppercase tracking-[0.3em] opacity-40 font-bold">
-                        {isPlaying ? "Pause Demo" : "Watch Demo"}
-                      </span>
-                    </div>
+                    )}
+
+                    {/* PLAY OVERLAY — only shown when not playing */}
+                    {!isPlaying && (
+                      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-emerald-950/20">
+                        <button
+                          onClick={togglePlay}
+                          className="w-20 h-20 md:w-24 md:h-24 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(16,185,129,0.5)] transition hover:scale-110"
+                          aria-label="Play"
+                        >
+                          <Play className="w-8 h-8 md:w-10 md:h-10 fill-current ml-1" />
+                        </button>
+                        <span className="mt-6 text-white text-xs uppercase tracking-[0.3em] opacity-40 font-bold">
+                          Watch Demo
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
