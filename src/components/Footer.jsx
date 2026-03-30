@@ -8,7 +8,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 const footerLinks = {
   company: [
     { name: "About Us", href: "/#about" },
-    { name: "Pricing", href: "/dashboard/billing" },
+    { name: "Pricing", href: "https://hiringai.hiringbazaar.in/dashboard/billing" },
     { name: "Contact", href: "/#contact" },
   ],
   products: [
