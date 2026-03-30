@@ -2,14 +2,13 @@ import { useEffect } from "react";
 
 const Pricing = () => {
   useEffect(() => {
-    window.location.href = "/dashboard/billing";
+    window.location.href = "https://hiringai.hiringbazaar.in/dashboard/billing";
   }, []);
 
   return null;
 };
 
 export default Pricing;
-
 
 
 
