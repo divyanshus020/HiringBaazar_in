@@ -34,6 +34,19 @@ const footerLinks = {
   ],
 };
 
+// const socialLinks = [
+//   {
+//     name: "LinkedIn",
+//     href: "https://www.linkedin.com/company/hiring-bazaar/",
+//     icon: (props) => (
+//       <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+//         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+//       </svg>
+//     ),
+//     color: "#0A66C2",
+//   },
+// ];
+
 const socialLinks = [
   {
     name: "LinkedIn",
@@ -44,6 +57,28 @@ const socialLinks = [
       </svg>
     ),
     color: "#0A66C2",
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/hiringbazaar.in?igsh=MTliaDBsaHhzaW4xYQ==",
+    icon: (props) => (
+      <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+        <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5a4.25 4.25 0 0 0 4.25 4.25h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5a4.25 4.25 0 0 0-4.25-4.25h-8.5z" />
+        <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5z" />
+        <circle cx="17.5" cy="6.5" r="1.2" />
+      </svg>
+    ),
+    color: "#E1306C",
+  },
+  {
+    name: "X",
+    href: "https://x.com/hiringbazaar",
+    icon: (props) => (
+      <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+        <path d="M18.901 2H21l-6.56 7.497L22 22h-5.956l-4.665-6.104L6.04 22H3.94l7.017-8.019L2 2h6.107l4.217 5.523L18.901 2zm-1.044 18h1.163L7.476 3.895H6.228L17.857 20z" />
+      </svg>
+    ),
+    color: "#111111",
   },
 ];
 
