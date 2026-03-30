@@ -8,7 +8,7 @@ const CURRENT_YEAR = new Date().getFullYear();
 const footerLinks = {
   company: [
     { name: "About Us", href: "/#about" },
-    { name: "Pricing", href: "/pricing" },
+    { name: "Pricing", href: "/dashboard/billing" },
     { name: "Contact", href: "/#contact" },
   ],
   products: [
