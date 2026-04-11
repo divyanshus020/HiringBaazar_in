@@ -7,11 +7,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLink =
-    "relative text-sm font-medium text-white px-3 py-2 transition duration-300 hover:text-emerald-700 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-emerald-600 after:transition-all after:duration-300 hover:after:w-full";
+    "relative text-sm font-medium text-white px-3 py-2 transition duration-300 hover:text-emerald-700 after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-emerald-600 after:transition-all after:duration-300 hover:after:w-full whitespace-nowrap";
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-4 md:px-6 pt-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Navbar */}
         <div className="relative bg-emerald-900/25 backdrop-blur-2xl rounded-full border border-emerald-200/80 px-6 py-0 shadow-[0_0_0_1px_rgba(6,78,59,0.6),0_10px_30px_rgba(0,0,0,0.2)]">
           <div className="flex items-center justify-between">
@@ -59,22 +59,22 @@ const Header = () => {
             </nav>
 
             {/* CTA */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2 lg:gap-3">
               <a
                 href="https://hiringai.hiringbazaar.in/signin"
-                className="text-sm font-medium text-white hover:text-emerald-300 transition"
+                className="text-sm font-medium text-white hover:text-emerald-300 transition whitespace-nowrap px-2 py-2"
               >
                 Log in
               </a>
               <a
                 href="https://hiringai.hiringbazaar.in/signup"
-                className="bg-emerald-800/40 hover:bg-emerald-700/60 font-medium text-white border border-emerald-500/50 px-5 py-2.5 rounded-full text-sm transition"
+                className="bg-emerald-800/40 hover:bg-emerald-700/60 font-medium text-white border border-emerald-500/50 px-4 lg:px-5 py-2.5 rounded-full text-sm transition whitespace-nowrap"
               >
                 Sign up
               </a>
               <a
                 href="#how-it-works"
-                className="group bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-emerald-950 px-6 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition flex items-center"
+                className="group bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-emerald-950 px-5 lg:px-6 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition flex items-center whitespace-nowrap shrink-0"
               >
                 See Demo
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
