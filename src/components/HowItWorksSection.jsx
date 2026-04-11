@@ -61,14 +61,19 @@ const HowItWorksSection = () => {
     });
   };
 
-  const toggleMute = () => {
+  const toggleMute = (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
     const v = getActiveVideo();
     if (!v) return;
-    v.muted = !v.muted;
-    setIsMuted(v.muted);
+    const newMuted = !v.muted;
+    videoRefs.current.forEach((video) => {
+      if (video) video.muted = newMuted;
+    });
+    setIsMuted(newMuted);
   };
 
-  const togglePlay = async () => {
+  const togglePlay = async (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
     const v = getActiveVideo();
     if (!v) return;
 
@@ -184,12 +189,13 @@ const HowItWorksSection = () => {
                             ref={(el) => (videoRefs.current[index] = el)}
                             src={video}
                             preload="metadata"
-                            className={`w-full h-auto object-cover transition-all duration-[2000ms] ${currentVideo === index && isPlaying
-                                ? "opacity-100"
-                                : "opacity-40 group-hover:opacity-70"
+                            className={`w-full h-auto cursor-pointer object-cover transition-all duration-[2000ms] ${currentVideo === index && isPlaying
+                              ? "opacity-100"
+                              : "opacity-40 group-hover:opacity-70"
                               }`}
                             playsInline
                             muted={isMuted}
+                            onClick={togglePlay}
                             onEnded={() => setIsPlaying(false)}
                           />
                         </div>
@@ -240,7 +246,10 @@ const HowItWorksSection = () => {
 
                     {/* Play Overlay */}
                     {!isPlaying && (
-                      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-emerald-950/20">
+                      <div
+                        className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-emerald-950/20 cursor-pointer"
+                        onClick={togglePlay}
+                      >
                         <button
                           onClick={togglePlay}
                           className="w-20 h-20 md:w-24 md:h-24 bg-emerald-500 hover:bg-emerald-400 text-white rounded-full flex items-center justify-center shadow-[0_0_50px_rgba(16,185,129,0.5)] transition hover:scale-110"

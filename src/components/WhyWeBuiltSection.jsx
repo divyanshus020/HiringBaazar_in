@@ -58,13 +58,10 @@ const WhyWeBuiltSection = () => {
                   <motion.div className="absolute -inset-1 bg-gradient-to-r from-emerald-100 to-teal-100 rounded-[2.5rem] blur opacity-80" />
 
                   <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden bg-white shadow-2xl border border-emerald-100">
-                    <video
-                      src="https://www.youtube.com/shorts/vknHHCbjCxM"
-                      controls
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
+                    <iframe
+                      src="https://www.youtube.com/embed/vknHHCbjCxM?autoplay=1&mute=1&loop=1&playlist=vknHHCbjCxM&controls=1"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
                       className="w-full h-full object-cover transition-all duration-1000"
                     />
 

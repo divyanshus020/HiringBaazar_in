@@ -25,7 +25,7 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-2 absolute left-1/2 -translate-x-1/2">
+            <nav className="hidden lg:flex items-center justify-center flex-1 gap-2 mx-4">
               <a
                 href="https://hiringai.hiringbazaar.in/"
                 target="_blank"
