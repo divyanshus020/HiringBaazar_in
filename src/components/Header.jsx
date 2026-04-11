@@ -59,7 +59,19 @@ const Header = () => {
             </nav>
 
             {/* CTA */}
-            <div className="hidden lg:flex items-center">
+            <div className="hidden lg:flex items-center gap-3">
+              <a
+                href="https://hiringai.hiringbazaar.in/signin"
+                className="text-sm font-medium text-white hover:text-emerald-300 transition"
+              >
+                Log in
+              </a>
+              <a
+                href="https://hiringai.hiringbazaar.in/signup"
+                className="bg-emerald-800/40 hover:bg-emerald-700/60 font-medium text-white border border-emerald-500/50 px-5 py-2.5 rounded-full text-sm transition"
+              >
+                Sign up
+              </a>
               <a
                 href="#how-it-works"
                 className="group bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-emerald-950 px-6 py-2.5 rounded-full text-sm font-semibold shadow-md hover:shadow-lg transition flex items-center"
@@ -115,7 +127,19 @@ const Header = () => {
                 Contact
               </a>
 
-              <div className="pt-4 border-t border-emerald-700">
+              <div className="pt-4 border-t border-emerald-700 space-y-3">
+                <a
+                  href="https://hiringai.hiringbazaar.in/signin"
+                  className="block text-center text-white px-6 py-2.5 rounded-full font-semibold border border-emerald-500/50 bg-emerald-800/40"
+                >
+                  Log in
+                </a>
+                <a
+                  href="https://hiringai.hiringbazaar.in/signup"
+                  className="block text-center bg-white/10 text-white px-6 py-2.5 rounded-full font-semibold"
+                >
+                  Sign up
+                </a>
                 <a
                   href="#how-it-works"
                   className="block text-center bg-gradient-to-r from-emerald-500 to-teal-500 text-emerald-950 px-6 py-3 rounded-full font-semibold"

@@ -9,7 +9,6 @@ import HeroSection from "@/components/HeroSection";
 
 // ── Below the fold: lazy loaded (browser fetches these AFTER first paint) ──
 // Each becomes a separate JS chunk — only downloaded when needed
-const ScrollShowcase = lazy(() => import("@/components/ScrollShowcase"));
 const WhyWeBuiltSection = lazy(() => import("@/components/WhyWeBuiltSection"));
 const HowItWorksSection = lazy(() => import("@/components/HowItWorksSection"));
 const ProductsSection = lazy(() => import("@/components/ProductsSection"));
@@ -53,11 +52,6 @@ const Index = () => {
         {/* ── Hero: no Suspense needed, eagerly loaded ── */}
         <section id="home">
           <HeroSection />
-
-          {/* ScrollShowcase is right below hero — lazy but Suspense-wrapped */}
-          <Suspense fallback={<Blank />}>
-            <ScrollShowcase />
-          </Suspense>
         </section>
 
         {/* ── Everything below: one Suspense boundary for the whole rest of page ── */}
