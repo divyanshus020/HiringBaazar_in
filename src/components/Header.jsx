@@ -36,7 +36,7 @@ const Header = () => {
               </a>
 
               <a
-                href="https://campushb.hiringbazaar.in"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfc8T3GjQtkx6r4J88qP34iWMsWbYICeIQGNN80KcISQJJ33w/viewform"
                 target="_blank"
                 rel="noreferrer"
                 className={navLink}
@@ -50,7 +50,7 @@ const Header = () => {
                 rel="noreferrer"
                 className={navLink}
               >
-                Partners 
+                Partners
               </a>
 
               <a href="#contact" className={navLink}>

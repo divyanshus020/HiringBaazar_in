@@ -36,7 +36,7 @@ export default function ProductsSection() {
         title: "Placement Agency",
         subtitle: "For Placement Agencies",
         description:
-          "Increase your revenue, placements and productivity by up to 3x",
+          "Increase your revenue, placements and productivity by up to 3x With our AI tools.",
         features: [
           "Increase your placements",
           "Get new clients",
@@ -53,13 +53,13 @@ export default function ProductsSection() {
         description:
           "Revolutionize your college placement process with AI-powered job matching",
         features: [
-          "Automated student-job matching",
-          "Company profile verification",
-          "Placement tracking & reporting",
-          "Alumni network integration",
+          "Live talks by people who cracked top companies",
+          "AI-powered mock interviews for every student",
+          "Resume building sessions by industry experts",
+          // "Alumni network integration",
         ],
         cta: "Empower Your Placements",
-        link: "https://campushb.hiringbazaar.in/",
+        link: "https://docs.google.com/forms/d/e/1FAIpQLSfy7LJuks6bEbZW14cv8arRvt_OZbMcfvkv3YagbJF7vsX_7w/viewform",
       },
     ],
     [],

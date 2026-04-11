@@ -1,6 +1,6 @@
-import { Play, Shield, Volume2, VolumeX, Pause, X } from "lucide-react";
-import founderVideo from "../assets/hero-video.mp4";
-import { useState, useRef } from "react";
+import { Play, Shield, X } from "lucide-react";
+// import founderVideo from "../assets/hero-video.mp4"
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
@@ -23,25 +23,7 @@ const fadeUp = {
 };
 
 const WhyWeBuiltSection = () => {
-  const [isMuted, setIsMuted] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const videoRef = useRef(null);
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) videoRef.current.pause();
-      else videoRef.current.play();
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !videoRef.current.muted;
-      setIsMuted(videoRef.current.muted);
-    }
-  };
 
   return (
     <motion.section
@@ -77,47 +59,22 @@ const WhyWeBuiltSection = () => {
 
                   <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden bg-white shadow-2xl border border-emerald-100">
                     <video
-                      ref={videoRef}
-                      src={founderVideo}
+                      src="https://www.youtube.com/shorts/vknHHCbjCxM"
+                      controls
                       autoPlay
-                      muted={isMuted}
+                      muted
                       loop
                       playsInline
-                      className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-all duration-1000"
                     />
 
                     {/* CLOSE */}
                     <button
                       onClick={() => setIsVisible(false)}
-                      className="absolute top-4 right-4 p-2 bg-black/40 backdrop-blur rounded-full text-white hover:bg-black/60"
+                      className="absolute top-4 right-4 p-2 bg-black/40 backdrop-blur rounded-full text-white hover:bg-black/60 z-10"
                     >
                       <X className="w-5 h-5" />
                     </button>
-
-                    {/* CONTROLS */}
-                    <div className="absolute bottom-4 left-4 flex gap-3">
-                      <button
-                        onClick={toggleMute}
-                        className="p-3 bg-white/20 backdrop-blur rounded-full border border-white/30 text-white hover:bg-white/40"
-                      >
-                        {isMuted ? (
-                          <VolumeX className="w-5 h-5" />
-                        ) : (
-                          <Volume2 className="w-5 h-5" />
-                        )}
-                      </button>
-
-                      <button
-                        onClick={togglePlay}
-                        className="p-3 bg-white/20 backdrop-blur rounded-full border border-white/30 text-white hover:bg-white/40"
-                      >
-                        {isPlaying ? (
-                          <Pause className="w-5 h-5" />
-                        ) : (
-                          <Play className="w-5 h-5 fill-current" />
-                        )}
-                      </button>
-                    </div>
                   </div>
 
                   {/* FLOATING ICON */}
@@ -179,17 +136,14 @@ const WhyWeBuiltSection = () => {
             <div className="space-y-6">
               {[
                 {
-                  title: "Fragmented Hiring Ecosystem",
-                  text: "Hiring is scattered across multiple platforms and vendors, making the process inefficient.",
-                },
-                {
-                  title: "Rising Cost Per Hire",
-                  text: "Companies are overpaying for hiring due to middlemen and inefficient workflows.",
-                },
-                {
                   title: "Slow Hiring Process",
-                  text: "Finding the right candidate takes weeks causing missed opportunities.",
+                  text: "Because Recruiting is not Supposed to Be This Manual",
                 },
+                {
+                  title: "Candidates Deserve Feedback",
+                  text: "Because Candidates Prepared for Weeks. They Deserve More Than Silence",
+                },
+
               ].map((item, i) => (
                 <motion.div
                   key={i}

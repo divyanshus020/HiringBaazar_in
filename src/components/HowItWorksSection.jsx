@@ -24,17 +24,17 @@ const STEPS = [
   {
     icon: <Zap className="w-6 h-6" />,
     title: "Post Once",
-    desc: "Add your job — no need to manage multiple platforms.",
+    desc: "Post the role. Let AI handle the manual work.",
   },
   {
     icon: <Search className="w-6 h-6" />,
-    title: "Sourcing simplified",
-    desc: "AI and expert recruiters find the best candidates.",
+    title: "AI Does the Heavy Lifting",
+    desc: "Resume screening, first-round interviews — handled automatically while you focus on people.",
   },
   {
     icon: <UserPlus className="w-6 h-6" />,
-    title: "Hire Faster",
-    desc: "Get verified candidates ready for interviews.",
+    title: "No Candidate Left Without an Answer",
+    desc: "Every candidate gets a detailed breakdown of their interview and a personalized improvement roadmap. Automatically."
   },
 ];
 
@@ -138,11 +138,10 @@ const HowItWorksSection = () => {
                       ref={videoRef}
                       src={demoVideo}
                       preload="metadata"
-                      className={`w-full h-auto object-cover transition-all duration-[2000ms] ${
-                        isPlaying
-                          ? "opacity-100"
-                          : "opacity-40 group-hover:opacity-70 group-hover:scale-105"
-                      }`}
+                      className={`w-full h-auto object-cover transition-all duration-[2000ms] ${isPlaying
+                        ? "opacity-100"
+                        : "opacity-40 group-hover:opacity-70 group-hover:scale-105"
+                        }`}
                       playsInline
                       muted={isMuted}
                       onEnded={() => setIsPlaying(false)}

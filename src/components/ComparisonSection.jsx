@@ -27,14 +27,14 @@ function ComparisonSection() {
         icon: TrendingUp,
       },
       {
-        feature: "Agency Transparency",
+        feature: "Agency",
         traditional: "None",
-        bazaar: "Full Visibility",
+        bazaar: "Verified Partner Agencies",
         icon: Check,
       },
       {
         feature: "Revenue engine",
-        traditional: "",
+        traditional: "None",
         bazaar: "Special Feature",
         icon: Check,
       },
@@ -140,9 +140,8 @@ function ComparisonSection() {
                 key={index}
                 variants={item}
                 whileHover={{ backgroundColor: "rgba(16,185,129,0.08)" }}
-                className={`grid grid-cols-3 border-b border-gray-200 last:border-b-0 ${
-                  index % 2 === 0 ? "bg-white/50" : "bg-gray-50/50"
-                }`}
+                className={`grid grid-cols-3 border-b border-gray-200 last:border-b-0 ${index % 2 === 0 ? "bg-white/50" : "bg-gray-50/50"
+                  }`}
                 style={{ willChange: "transform" }} // ✅ GPU
               >
                 <div className="p-6 font-semibold text-gray-900 flex items-center gap-3">
