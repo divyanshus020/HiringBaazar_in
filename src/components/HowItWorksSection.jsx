@@ -173,20 +173,6 @@ const HowItWorksSection = () => {
               <div className="float-anim w-full">
                 <div className="relative rounded-[2rem] md:rounded-[3rem] p-3 md:p-4 bg-emerald-900/30 border border-emerald-800 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)]">
                   <div className="relative rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-emerald-950 border border-emerald-800 shadow-2xl group">
-<<<<<<< HEAD
-                    <video
-                      ref={videoRef}
-                      src={demoVideo}
-                      preload="metadata"
-                      className={`w-full h-auto object-cover transition-all duration-[2000ms] ${isPlaying
-                        ? "opacity-100"
-                        : "opacity-40 group-hover:opacity-70 group-hover:scale-105"
-                        }`}
-                      playsInline
-                      muted={isMuted}
-                      onEnded={() => setIsPlaying(false)}
-                    />
-=======
                     {/* Slider Track */}
                     <div
                       className="flex transition-transform duration-500 ease-in-out"
@@ -198,11 +184,10 @@ const HowItWorksSection = () => {
                             ref={(el) => (videoRefs.current[index] = el)}
                             src={video}
                             preload="metadata"
-                            className={`w-full h-auto object-cover transition-all duration-[2000ms] ${
-                              currentVideo === index && isPlaying
+                            className={`w-full h-auto object-cover transition-all duration-[2000ms] ${currentVideo === index && isPlaying
                                 ? "opacity-100"
                                 : "opacity-40 group-hover:opacity-70"
-                            }`}
+                              }`}
                             playsInline
                             muted={isMuted}
                             onEnded={() => setIsPlaying(false)}
@@ -210,7 +195,6 @@ const HowItWorksSection = () => {
                         </div>
                       ))}
                     </div>
->>>>>>> a98c618c0911db8a015eb1f7d89a22a99f2bfcfc
 
                     {/* Left Arrow */}
                     <button
@@ -276,9 +260,8 @@ const HowItWorksSection = () => {
                         <button
                           key={index}
                           onClick={() => goToSlide(index)}
-                          className={`w-3 h-3 rounded-full transition ${
-                            currentVideo === index ? "bg-white" : "bg-white/40"
-                          }`}
+                          className={`w-3 h-3 rounded-full transition ${currentVideo === index ? "bg-white" : "bg-white/40"
+                            }`}
                           aria-label={`Go to video ${index + 1}`}
                         />
                       ))}
