@@ -15,22 +15,7 @@ const Pricing = () => {
   const [customInterviews, setCustomInterviews] = useState(57);
 
   const plans = [
-    {
-      id: "test",
-      name: "Test",
-      candidates: 10,
-      price: 1,
-      description: "For testing the payment flow only",
-      features: [
-        "10 Candidate Credits",
-        "1 AI Interview",
-        "Instant activation",
-        "Remove anytime",
-      ],
-      icon: Zap,
-      popular: false,
-      isTest: true,
-    },
+
     {
       id: "starter",
       name: "Starter",
@@ -195,13 +180,12 @@ const Pricing = () => {
                   <motion.div
                     key={plan.id}
                     variants={itemVariants}
-                    className={`relative flex flex-col rounded-[28px] border bg-white shadow-sm transition-all duration-200 hover:shadow-md ${
-                      isTest
-                        ? "border-dashed border-yellow-400 bg-yellow-50/30"
-                        : plan.popular
+                    className={`relative flex flex-col rounded-[28px] border bg-white shadow-sm transition-all duration-200 hover:shadow-md ${isTest
+                      ? "border-dashed border-yellow-400 bg-yellow-50/30"
+                      : plan.popular
                         ? "border-primary/50 ring-1 ring-primary/20"
                         : "border-border"
-                    }`}
+                      }`}
                   >
                     {plan.popular && (
                       <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
@@ -221,14 +205,12 @@ const Pricing = () => {
 
                     <div className="p-8 flex flex-col h-full">
                       <div
-                        className={`p-3 rounded-2xl w-fit mb-5 ${
-                          isTest ? "bg-yellow-100" : "bg-primary/10"
-                        }`}
+                        className={`p-3 rounded-2xl w-fit mb-5 ${isTest ? "bg-yellow-100" : "bg-primary/10"
+                          }`}
                       >
                         <Icon
-                          className={`h-5 w-5 ${
-                            isTest ? "text-yellow-600" : "text-primary"
-                          }`}
+                          className={`h-5 w-5 ${isTest ? "text-yellow-600" : "text-primary"
+                            }`}
                         />
                       </div>
 
